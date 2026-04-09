@@ -11,6 +11,7 @@ from pymilvus import (
 from src.memoryBlock import MemoryBlock
 from src.embedding import ef
 LONG_TERM_MEM="long_term_memory"
+DENY_TO_DIE = 10
 class MyMilvus:
     def __init__(self):
         # 连接到本地 Milvus Lite 数据库
@@ -42,6 +43,7 @@ class MyMilvus:
                 FieldSchema(name="source", dtype=DataType.VARCHAR, max_length=128),
                 FieldSchema(name="sparse_vector", dtype=DataType.SPARSE_FLOAT_VECTOR),
                 FieldSchema(name="dense_vector", dtype=DataType.FLOAT_VECTOR, dim=512),
+                FieldSchema(name="deny_to_die", dtype=DataType.INT64)
             ]
             # 创建集合
             schema = CollectionSchema(fields, description="DashScope 嵌入向量集合")
@@ -75,6 +77,7 @@ class MyMilvus:
             source,                  # source 字段
             sparse_vectors,  # sparse_vector 字段
             chunks_embeddings["dense"],     # dense_vector 字段
+            [DENY_TO_DIE]*len(data)  # deny_to_die 字段
         ]
         insert_result = collection.insert(entities)
         print(f"✅ 成功插入 {len(insert_result.primary_keys)} 条数据")
@@ -206,12 +209,74 @@ class MyMilvus:
                 'source': "内存块来源"
         """
         self.insert_data([memory_block.text], [memory_block.metadata['title']], [memory_block.metadata['source']], collection_name=collection_name)
+    def delete_block(self, memory_block:MemoryBlock, collection_name: str = "my_collection"):
+        try:
+            collection = Collection(collection_name)
+            collection.load()
+            collection.delete(
+                expr=f"title == '{memory_block.metadata['title']}' AND source == '{memory_block.metadata['source']}' AND text == '{memory_block.text}'"
+            )
+            print(f"✅ 删除内存块成功: {memory_block.metadata['title']}")
+        except Exception as e:
+            print(f"❌ 删除内存块失败: {e}")
+    def block_to_die(self, memory_block:MemoryBlock, collection_name: str = "my_collection"):
+        """将指定内存块寿命下降 1，到 0 自动死亡，不可恢复"""
+        # 1. 先查询当前的 len 值
+        try:
+            client=Collection(collection_name)
+            result = client.query(
+                expr=f"title == '{memory_block.metadata['title']}' AND source == '{memory_block.metadata['source']}' AND text == '{memory_block.text}'",
+                output_fields=["id","text","title","source","deny_to_die","sparse_vector","dense_vector"]
+            )
+
+            if result:
+                current_data = result[0]
+                # 2. 将 deny_to_die - 1
+                current_data["deny_to_die"] -= 1
+                print(f"✅ 内存块寿命下降: {memory_block.metadata['title']}")
+                if current_data["deny_to_die"] >= 0:
+                    # 3. 带主键 id 整行 upsert
+                    client.upsert([current_data])
+                else:
+                    self.delete_block(memory_block,collection_name=collection_name)
+        except Exception as e:
+            print(f"❌ 更新内存块寿命失败: {e}")
+    def block_to_hlive(self, memory_block:MemoryBlock, collection_name: str = "my_collection"):
+        """将指定内存块寿命恢复到默认值"""
+        try:
+            client=Collection(collection_name)
+            result = client.query(
+                expr=f"title == '{memory_block.metadata['title']}' AND source == '{memory_block.metadata['source']}' AND text == '{memory_block.text}'",
+                output_fields=["id","text","title","source","deny_to_die","sparse_vector","dense_vector"]
+            )
+            if result:
+                current_data = result[0]
+                # 2. 将 deny_to_die - 1
+                current_data["deny_to_die"] = DENY_TO_DIE
+                print(f"✅ 内存块寿命革新: {memory_block.metadata['title']}")
+                if current_data["deny_to_die"] >= 0:
+                    # 3. 带主键 id 整行 upsert
+                    client.upsert([current_data])
+                else:
+                    self.delete_block(memory_block,collection_name=collection_name)
+        except Exception as e:
+            print(f"❌ 更新内存块寿命失败: {e}")
 db=MyMilvus()
 
 #测试代码
 if __name__ == "__main__":
     query="测试保存到a.txt"
-    # db.insert_block(MemoryBlock(text=query,metadata={"title":"查询","source":"用户输入"}),collection_name=LONG_TERM_MEM)
+    block=MemoryBlock(text=query,metadata={"title":"查询","source":"用户输入"})
+    db.insert_block(block,collection_name=LONG_TERM_MEM)
+    results=db.hybrid_search(query,10,LONG_TERM_MEM,1.0,0.2)
+    blocks=db.result_to_blocks(results)
+    for block in blocks:
+        print(block.text)
+        print(block.metadata["title"])
+        print(block.metadata["source"])
+        print("============")
+    for i in range(9):
+        db.block_to_die(block,collection_name=LONG_TERM_MEM)
     results=db.hybrid_search(query,10,LONG_TERM_MEM,1.0,0.2)
     blocks=db.result_to_blocks(results)
     for block in blocks:

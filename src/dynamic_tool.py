@@ -5,25 +5,27 @@ import re
 import os
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
-
+from src.myMilvus import db
 
 def generate_tool(memory_block_list: list[MemoryBlock]) -> List:
     """根据内存块列表生成动态工具函数列表"""
     tools = []
-    
+    from src.myMilvus import LONG_TERM_MEM
     for i, block in enumerate(memory_block_list):
         title = block.metadata.get('title', f'内存块{i+1}')
         content = block.text
         source = block.metadata.get('source', '未知来源')
-        
+        # 初始化时，寿命下降 1，到 0 自动死亡，不可恢复
+        db.block_to_die(block,LONG_TERM_MEM)
         # 关键修复：使用立即执行函数表达式(IIFE)避免闭包问题
         def create_memory_tool_factory(memory_content, memory_title, memory_source, index):
             @tool
             def memory_tool() -> str:
                 """获取内存块内容"""
+                #工具被使用，寿命恢复到默认值
+                db.block_to_hlive(block,LONG_TERM_MEM)
                 return f"标题: {memory_title}\n来源: {memory_source}\n内容: {memory_content}"
 
-            
             # 生成安全的工具名称
             safe_name = f"get_memory_{index}"
             
