@@ -66,11 +66,7 @@ def test_tool_generation():
     print(tools[0].invoke({}))
     # return 
     # LLM 初始化
-    llm = ChatOpenAI(
-        model="qwen-plus-2025-07-28", 
-        api_key="sk-49dc548d565d45b896ab3b1d8e21faf9", # 从环境变量获取API密钥
-        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
-    )
+    from src.graph_builder import llm
     llm_with_tools = llm.bind_tools(tools)
     # 测试工具调用
     response = llm_with_tools.invoke("我给你提供了哪些工具，利用工具查询关于'机器学习'的内存信息？")
