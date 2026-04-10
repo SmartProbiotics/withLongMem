@@ -1,0 +1,1390 @@
+{
+  "file_path": "/root/withLongMem/test/user_document/24S151167.pdf",
+  "process_time": 82.19186309957877,
+  "paragraphs": 271,
+  "tables": 13,
+  "sections": [
+    {
+      "text": "Maximum Edge--Clique: Novel Iterative FrameworksbasedUasi",
+      "tag": "@@1\t52.7\t275.3\t86.7\t95.6##",
+      "length": 57
+    },
+    {
+      "text": "Hongbo XiaHarbin Institute of Technology,Shenzhen Shenzhen, China",
+      "tag": "@@1\t75.7\t208.0\t109.0\t158.3##",
+      "length": 65
+    },
+    {
+      "text": "Shengxin Liu*Harbin Institute of Technology. Shenzhen Shenzhen, China",
+      "tag": "@@1\t240.3\t372.7\t109.0\t158.3##",
+      "length": 69
+    },
+    {
+      "text": "Zhaoquan Gu*Harbin Institute of Technology. Shenzhen Pengcheng Laboratory Shenzhen, China",
+      "tag": "@@1\t404.3\t536.3\t109.0\t170.7##",
+      "length": 89
+    },
+    {
+      "text": "Abstract",
+      "tag": "@@1\t53.3\t96.3\t190.7\t202.0##",
+      "length": 8
+    },
+    {
+      "text": "extraction of cohesive subgraphs. However, due to noise and in-complete edge information, the strict definition of a clique (i.e. a pairwise fully connected subgraph) is often too restrictive forpractical scenarios. One intuitive relaxation is the edge-based y-quasi-clique [2, 3], which introduces a parameter (between 0 and 1) to control the degree of relaxation. Specifically, a subgraph is considered an edge-based y-quasi-clique if the ratio of its number of edges to that of a complete graph of the same size is at least y. When y = 1, this definition reduces to the classical clique model.",
+      "tag": "@@1\t316.0\t560.3\t191.3\t290.3##",
+      "length": 596
+    },
+    {
+      "text": "Extracting cohesive subgraphs from complex networks is a funda-mental task in graph analytics and is essential for understanding biological, social, and web graphs. The edge-based y-quasi-clique model offers a flexible alternative by identifying subgraphs whose edge densities exceed a specified threshold y. However, finding the exact maximum edge-based quasi-clique is computationally challenging, as the problem is NP-hard and lacks the hereditaryproperty. These characteristics limit the effectiveness of conven-tional pruning methods and the development of efficient reductionrules. As a result, existing algorithms, such as QClique and FPCE,struggle to scale to large graphs. In this paper, we revisit the prob-lem and propose a novel iterative framework that reformulates the problem as a sequence of hereditary subproblems, enabling more effective pruning and reduction strategies and improving theworst-case time complexity. Furthermore, we redesign the itera-tive process and introduce a novel heuristic to further improvepractical efficiency. Extensive experiments on 253 large-scale real-world graphs demonstrate that our proposed algorithm EQc-Pro outperforms existing methods by up to four orders of magnitude.",
+      "tag": "@@1\t50.7\t297.0\t203.7\t414.0##",
+      "length": 1224
+    },
+    {
+      "text": "Recent studies [35] have provided strong empirical evidence that the edge-based y-quasi-clique model offers practical benefits inbiological network analysis. For instance, compared to the degree-based y-quasi-clique model, which requires each vertex in the sub-graph to be connected to at least a y-fraction of the other vertices,the edge-based model achieves better predictive performance inidentifying protein complexes, as measured by sensitivity, preci-sion, and geometric accuracy [31]. Moreover, compared to heuristic approaches [31], clusters obtained from exact solutions exhibit higher biological relevance, as demonstrated by Gene Ontology enrichment analysis, which reveals enrichment in more unique and functionally meaningful cellular components. These results highlight the practical advantages of exact dense subgraph miningfor uncovering biologically significant structures. Beyond biologi-cal networks, the edge-based quasi-clique model has also proven effective in a variety of other contexts, including the analysis of social networks [5, 17] and the detection of anomalies [39, 45].",
+      "tag": "@@1\t315.0\t560.3\t290.3\t477.0##",
+      "length": 1102
+    },
+    {
+      "text": "CCS Concepts",
+      "tag": "@@1\t52.7\t124.0\t422.3\t434.0##",
+      "length": 12
+    },
+    {
+      "text": ". Theory of computation →> Graph algorithms analysis.",
+      "tag": "@@1\t52.3\t277.0\t438.0\t449.7##",
+      "length": 53
+    },
+    {
+      "text": "Keywords",
+      "tag": "@@1\t53.3\t104.0\t459.7\t471.0##",
+      "length": 8
+    },
+    {
+      "text": "Cohesive subgraph mining, edge-based quasi-clique",
+      "tag": "@@1\t53.3\t243.7\t473.7\t485.0##",
+      "length": 49
+    },
+    {
+      "text": "In this paper, we revisit the problemof fnding the exact maximum edge-based quasi-clique [29, 36, 42]. Specifically, given a graph and adensity threshold y, our goal is to identify the largest edge-based y-quasi-clique. This problem is challenging as it has been proven to be NP-hard [34], which creates substantial computational diffculties for exact solutions. Moreover, the edge-based y-quasi-clique doesnot have the hereditary property; that is, its subgraphs are not neces-sarily edge-based y-quasi-cliques. Consequently, many techniques that have been developed for finding cohesive subgraphs with the hereditary property, such as k-plexes [11, 12, 20] and k-defective cliques [8, 9, 16], cannot be directly applied to this problem. This limitation reduces the effectiveness of traditional pruning strategies and further increases the complexity of the problem.",
+      "tag": "@@1\t316.0\t561.3\t474.3\t619.7##",
+      "length": 867
+    },
+    {
+      "text": "ACM Reference Format:",
+      "tag": "@@1\t52.3\t142.3\t488.3\t500.0##",
+      "length": 21
+    },
+    {
+      "text": "Hongbo Xia, Shengxin Liu, and Zhaoquan Gu. 2026. Maximum Edge-basedQuasi-Clique: Novel Iterative Frameworks. In . ACM, New York, NY, USA,12 pages. https://doi.org/10.1145/nnnnnnn.nnnnnnn",
+      "tag": "@@1\t52.3\t296.0\t500.0\t531.3##",
+      "length": 186
+    },
+    {
+      "text": "1 Introduction",
+      "tag": "@@1\t52.3\t134.7\t542.0\t553.7##",
+      "length": 14
+    },
+    {
+      "text": "Many types of real-world information can be naturally representedas graphs, including biological protein networks, social networks,and web graphs. A fundamental problem in this context is the",
+      "tag": "@@1\t50.7\t296.7\t555.3\t589.0##",
+      "length": 191
+    },
+    {
+      "text": "*Shengxin Liu and Zhaoquan Gu are the corresponding authors.",
+      "tag": "@@1\t52.3\t236.3\t598.0\t609.7##",
+      "length": 60
+    },
+    {
+      "text": "State-of-the-Art Algorithms. Existing exact algorithms for themaximum edge-based quasi-clique problem fall into two main cate-gories: mixed integer programming (MIP) and branch-and-bound (BNB) techniques. While MIP-based methods [29, 34, 42] can solve instances with up to 104 vertices, they often struggle to scale to",
+      "tag": "@@1\t316.0\t559.7\t618.0\t675.0##",
+      "length": 318
+    },
+    {
+      "text": "larger graphs in practice. Consequently, recent research has focused on developing efficient BNB algorithms.",
+      "tag": "@@2\t52.3\t294.3\t85.7\t108.0##",
+      "length": 108
+    },
+    {
+      "text": "We conduct extensive experiments on 253 graphs and show that our proposed EQC-Pro achieves up to four orders of magnitude speedup over state-of-the-art baselines QClique and FPCE (Section 7). Our source code can be found in [1].",
+      "tag": "@@2\t316.7\t558.7\t85.7\t130.3##",
+      "length": 228
+    },
+    {
+      "text": "Among BNB methods, QClique [36] stands out as the most ef-ficient exact solver to date It builds on the branching strategy ofPCE [41], which exploits the quasi-hereditary structure of edge-based quasi-cliques [34]. Qclique introduces a new upper bound to improve pruning, achieving performance competitive with earlier BNB and MIP-based approaches. In parallel, FPCE [35] representsthe state-of-the-art algorithm for maximal enumeration and incor-porates several refined pruning rules. Although FPCE is designed for enumerating maximal edge-based quasi-cliques, it can be adapted to the exact maximum problem by dynamically tracking the current best solution during search.",
+      "tag": "@@2\t51.7\t297.7\t108.0\t229.3##",
+      "length": 673
+    },
+    {
+      "text": " 2 Preliminaries",
+      "tag": "@@2\t315.0\t402.3\t137.7\t149.3##",
+      "length": 16
+    },
+    {
+      "text": "Let G = (V,E) be an undirected simple graph with |Vl = n ver-tices and |E| = m edges. We denote G[S] of G as the subgraphinduced by the set of vertices S  V. For any S  V and u e V,let d(u) denote the number of neighbors of u in S, ie., d(u) =[{o ∈ S | o ≠ u and (u,o) ∈ E}l. Moreover, we use Ng[u] to denotethe closed neighborhood of vertex u in G, i.e., Ng[u] = {o ∈ V |0 = u or (u,o) e E}, and Ng[S] to denote the union of Ng[u] for allvertices u E S, ie, Ng[S] = Uues Ng[u]. For an induced graphg of G, the vertex set and the edge set of g are denoted by V(g)and E(g), respectively. For a subgraph g, we define the number of missing edges as the number of edges absent in g compared to acomplete graphofthe same size, ie, (V)) -E() Inthis pap,we focus on the edge-based y-quasi-clique (y-EQC) [2, 3].",
+      "tag": "@@2\t315.3\t562.0\t153.3\t298.7##",
+      "length": 804
+    },
+    {
+      "text": "Despite these advances, both QClique and FPCE share certainlimitations. Specifically, they inherit the same branching mecha-nism as PCE, making their pruning strategies tightly coupled to this structure. This coupling hinders the design of effective reductionrules for further efficiency improvements; to the best of our knowl-edge, no such reduction rules have been proposed in the literature. As a result, these solvers remain constrained on large graphs, where graph reduction is often decisive for performance.",
+      "tag": "@@2\t52.3\t296.0\t228.7\t316.7##",
+      "length": 514
+    },
+    {
+      "text": "DEFINITION 1. Given a real number0 < y < 1, a graph g is said to be an edge-based y-quasi-clique (y-EQC)if (E(g)l ≥ y× (IV(g)).",
+      "tag": "@@2\t315.0\t561.0\t302.0\t330.0##",
+      "length": 127
+    },
+    {
+      "text": "Our New Methods. We reformulate the problem as a sequenceof hereditary subproblems, enabling pruning and reduction tech-niques that explicitly leverage hereditary properties. Under this reformulation, we formally prove the correctness of the proposed iterative framework for the edge-based quasi-clique and establish its worst-case time complexity of O*(β), where O* suppresses polynomial factors, n is the number of vertices, βx < 2 is the largest real root of xk+2 - 2xk+1 + 1 = 0, and k relates to the size of the optimal solution. This improves upon existing exact algorithms such as QClique and FPCE, both of which have O*(2n) complexity. To the best of our knowledge, EQc-Pro is the first exact algorithm for MaxEQC with a non-trivial complexity",
+      "tag": "@@2\t51.7\t296.7\t315.0\t448.7##",
+      "length": 751
+    },
+    {
+      "text": "In other words, an edge-based y-quasi-clique is an induced sub-graph in which the number of edges is at least a y faction of the numberofedges in the coreponding comlete graph,e, (V). We are ready to present our problem in this paper.",
+      "tag": "@@2\t315.0\t561.0\t330.7\t377.0##",
+      "length": 234
+    },
+    {
+      "text": "PROBLEM 1 (MAXIMUM EDGE-BASED y-QUASI-CLIQUE). Given agraph G = (V,E) and a real number y E (0, 1), the Maximum Edge-based y-Quasi-Clique Problem (MaxEQC) aims to find an edge-based Y-quasi-clique in G with the largest number of vertices.",
+      "tag": "@@2\t315.0\t560.3\t382.7\t429.0##",
+      "length": 238
+    },
+    {
+      "text": "Let g* and s* = |V(g*)| be the maximum y-EQC and its size. Find-ing the maximum y-EQC is known to be NP-hard [34]. Moreover,y-EQCs lack the hereditary property [34]: A subgraph of a y-EQC isnot necessarily a y-EQC. This limitation complicates efficient algo-rithm design, as even checking maximality by inclusion becomes a non-trivial task for y-EQC. Nevertheless, y-EQCs satisfy a weaker structural guarantee, known as the quasi-hereditary property.",
+      "tag": "@@2\t316.0\t560.3\t430.7\t509.0##",
+      "length": 450
+    },
+    {
+      "text": "Furthermore, by exploiting the quasi-hereditary property of the edge-based quasi-clique, we develop a bottom-up doubling iterative framework that reduces the number of iterations required to solve hereditary subproblems from O(n) to O(log s*) in theory, where s* denotes the size of the optimal solution and is typically much smaller than n in practice. Finally, we design a simple yet effective heuristic grounded in the degeneracy sequence, a standard tool in cohesive subgraph mining. To mitigate the rigidity induced by strict adherence to a fixed degeneracy sequence, we introduce a dynamically refined heuristic strategy that iteratively updates the candidate solution via vertex additions and deletions. This strategy diversifies selection process and can yield better heuristic solutions. Contributions. Our contributions are summarized as follows.",
+      "tag": "@@2\t51.7\t297.0\t448.0\t590.0##",
+      "length": 856
+    },
+    {
+      "text": "PROPOSITION 1 (QUASI-HEREDITARY PROPERTY [34]). Let G =(V,E) be a graph and S ≤ V such that G[S] is a y-EQC. Ifthere existsa vertex o E S with degree less than the average degree in G[S], i.e.,d() ≤2EGSD, thenG[], where S =S\\o}, say-EQC. [S",
+      "tag": "@@2\t314.3\t559.7\t514.0\t563.3##",
+      "length": 240
+    },
+    {
+      "text": "Proposition 1 implies that for a given y-EQC g, removing a vertex satisfying a specific degree constraint guarantees that the remaining graph remains a y-EQC, whereas removing an arbitrary vertex does not, due to the non-hereditary property of y-EQCs.",
+      "tag": "@@2\t316.0\t560.3\t566.7\t610.3##",
+      "length": 251
+    },
+    {
+      "text": "● We adapt the top-down iterative framework to the edge-based quasi-clique setting by reducing the problem to a sequence of hereditary subproblems, thereby achieving improved complexityof O*(p2). (Section 3)clique, we propose a bottom-up doubling iterative framework that reduces the number of iterations required to solve hereditarysubproblems from O(n) to O(log s*). (Section 4)● We design a novel heuristic strategy, further improving practicalperformance. (Section 5)",
+      "tag": "@@2\t52.3\t297.0\t592.3\t703.0##",
+      "length": 471
+    },
+    {
+      "text": "3 A Top-down Iterative Baseline Framework",
+      "tag": "@@2\t316.7\t543.7\t619.7\t631.0##",
+      "length": 41
+    },
+    {
+      "text": "A closely related problem to MaxEQC is the maximum degree-based quasi-clique problem (MaxQC), which has been effectively addressed by the state-of-the-art iterative algorithm IterQC [43]. We note that neither of these two problems satisfies the hereditary property. Thus, inspired by the key iterative idea behind IterQC, our first framework seeks to transform the MaxEQC problem into a sequence of subproblems that do possess the hereditary property, following",
+      "tag": "@@2\t314.3\t560.3\t633.7\t712.0##",
+      "length": 461
+    },
+    {
+      "text": "● By leveraging the quasi-hereditary property of edge-based quasi",
+      "tag": "@@2\t53.3\t294.3\t637.0\t648.3##",
+      "length": 65
+    },
+    {
+      "text": "a top-down approach. We introduce the cohesive subgraph of k-defective clique, which serves as a key component in our approach.",
+      "tag": "@@3\t51.7\t296.0\t85.7\t108.0##",
+      "length": 127
+    },
+    {
+      "text": "subgraph until only s vertices remain. Since a vertex of minimum degree always has less than or equal to the average degree, the quasi-hereditary property (Proposition 1) ensures that the induced subgraph g on the remaining s vertices remains a y-EQC. Thus, thenumber of edges in g is at least y × (§), which implies that g is a fea--sible k-defective clique of size s since the number of missing edges is [(2) - yx ()] = k. Consequently, we have solve-defect(k) ≥ s.Case 2: s > s*. We prove by contradiction. Suppose, to the contrary,that s ≤ solve-defect(get-k(s)). Lets' = solve-defect(get-k(s)),and let g' be the corresponding k-defective clique returned. By defi-nition of a k-defective clique (Definition 2), the number of edges ing' satisfies E(g) ≥ (2) - get-k(s). Since get-k(s) ≤ get-k(s') =(1 - y)(2), we have E(g) ≥(2) -(1 - v()| ≥ r(2). Thus,g' corresponds to a y-EQC of size s', and we know s' ≥ s > s*,which contradicts the maximality of s*.口",
+      "tag": "@@3\t316.0\t573.0\t85.7\t256.5##",
+      "length": 957
+    },
+    {
+      "text": "DEFINITION 2 ([44]). Given an integer k ≥ 1, a graph g is said to",
+      "tag": "@@3\t63.3\t296.0\t114.0\t125.3##",
+      "length": 65
+    },
+    {
+      "text": "In other words, a k-defective clique g contains at most k missingedges. Note that the k-defective clique enjoys the hereditary prop-erty, which can be leveraged to prune the search space. Buildingon the concept of k-defective clique, extensive studies [8, 9, 14, 15,19, 28] have focused on the following problem.",
+      "tag": "@@3\t50.7\t296.0\t142.0\t198.7##",
+      "length": 312
+    },
+    {
+      "text": "PROBLEM 2 (MAxIMUM k-DEFECTIVE CLIQUE). Given a graph G =(V,E) and a positive integer k, the Maximum k-Defective-Clique Problem (kDC) aims to find the largest k-defective-clique in G.",
+      "tag": "@@3\t52.3\t296.0\t201.3\t236.0##",
+      "length": 183
+    },
+    {
+      "text": "Based on kDC, we can define the following two functions",
+      "tag": "@@3\t62.3\t271.0\t241.7\t253.3##",
+      "length": 55
+    },
+    {
+      "text": "● get-k(n) := [(1 - y) · (2)J, which takes a number n of verticesas input and returns an appropriate value of k;● solve-defect(k) := the size of the largest k-defective clique in G, which takes a value k as input.",
+      "tag": "@@3\t53.3\t296.0\t255.0\t298.7##",
+      "length": 213
+    },
+    {
+      "text": "Bottom-up Framework Overview. Proposition 2 implies that we can identify s* by carefully analyzing the relationship between sand solve-defect(get-k(s)). In particular, based on Proposition 2,we can devise a more efficient iterative framework by performing a binary search on the candidate size s. Consequently, the numberof iterations to determine s* can be reduced from O(n) to O(log n),thereby improving effciency. Nevertheless, it is important to note that the efficiency of solve-defect(k) is highly dependent on the value of k. Specifically, the problem becomes easier to solve as k decreases. This observation motivates us to explore alternativesearch strategies that can further reduce the computational cost,especially in the early stages of the iterative framework.",
+      "tag": "@@3\t315.3\t560.3\t269.7\t403.3##",
+      "length": 774
+    },
+    {
+      "text": "Inspired by IterQC [43], our top-down iterative approach EQc-TDstarts from an upper bound so > s* and alternately applies k; =get-k(si-1) and s; = solve-defect(k;) until convergence, i.e.,until si = Si-1. It can be shown that the sequence s; is monotonically decreasing and converges to the optimal value s*. Thus, EQc-TD correctly reduces the MaxEQC problem, which lacks the hereditary property, to a sequence of kDC instances, which are hereditary. Due to space constraints, the pseudocode and correctness proof of EQC-TD are provided in Appendix A.",
+      "tag": "@@3\t50.7\t297.0\t301.0\t401.7##",
+      "length": 551
+    },
+    {
+      "text": "Limitations. The framework still suffers from the efficiency issues.First, in the worst case, EQc-TD requires n calls to solve-defect,leading to excessive number of iterations. Second, although kDCis hereditary, its computational cost becomes prohibitive as k in-creases. Specifically, for a fixed density y, the get-k function indi-cates that k grows quadratically with the number of vertices.",
+      "tag": "@@3\t52.3\t296.0\t400.0\t466.0##",
+      "length": 394
+    },
+    {
+      "text": "To this end, we make use of a bottom-up doubling strategy to progressively approach the optimal value s*. Specifically, let lb andub denote the current lower and upper bounds of s*. The stan-dard binary search approach would iteratively select the midpoint,s =[(lb + ub) /2], as the candidate value of s to evaluate at each iter-ation, updating the bounds based on the result. While this methodis efficient in terms of the number of iterations, it may not al-ways be efficient in practice, particularly when we need to invoke solve-defect with a large value of k (e.g., when ub is large).",
+      "tag": "@@3\t316.0\t561.3\t401.0\t503.3##",
+      "length": 588
+    },
+    {
+      "text": "4  An Advanced Bottom-up Iterative Framework",
+      "tag": "@@3\t52.3\t293.7\t474.3\t486.0##",
+      "length": 44
+    },
+    {
+      "text": "To address the limitations of the top-down iterative framework, we leverage a structural property, i.e., the quasi-hereditary property in Proposition 1, unique to the definition of y-EQC, which is absent under the degree-based formulation. Based on this property, we develop a specially designed bottom-up iterative framework tailored for MaxEQc. We first introduce an important property of the iterative framework for y-EQC, which is derived from Proposition 1.",
+      "tag": "@@3\t52.3\t295.3\t490.0\t566.7##",
+      "length": 462
+    },
+    {
+      "text": "In contrast, our bottom-up doubling strategy begins by probingthe values of s in an exponentially increasing sequence lb + 1, 1b +2, lb + 4, .- , doubling the step size at each iteration until the valueexceeds s*. After a candidate interval that must contain s* is identi-fied, we then switch to a more localized search, i.e., we perform a binary search within this narrowed interval. This approach keepsthe values of k encountered in the early rounds as small as pos-sible, which can potentially improve the overall efficiency of the bottom-up doubling strategy.",
+      "tag": "@@3\t315.3\t560.3\t501.7\t601.3##",
+      "length": 563
+    },
+    {
+      "text": "PROPosITIoN 2. Recall that s* denote the size of the maximum edge-based y-quasi-clique. Then, it holds that (1) for anys ≤s*, s ≤ solve-defect(get-k(s)), and (2) for any s > s*, s > solve-defect(get-k(s).",
+      "tag": "@@3\t52.3\t295.3\t571.0\t616.3##",
+      "length": 204
+    },
+    {
+      "text": "Algorithm. Our bottom-up doubling iterative framework EQC-BU is detailed in Algorithm 1. EQC-BU searches for the optimal value s* by dynamically adjusting the lower bound lb and upper bound ub of s*. In Line 1, EQC-BU initializes lb to 1 and ub to |V|, as it holds that 1 ≤ s* ≤ |Vl. The core idea of EQC-BU is to efficiently and progressively identify the search interval containing s* via the check subroutine (described in Lines 14-17). This subroutine evaluates whether a candidate value of s does not exceed the optimal solution size s*, as guaranteed by Proposition 2. The evaluation process has two phases: a doubling phase and a halving phase.",
+      "tag": "@@3\t316.0\t560.3\t599.0\t712.7##",
+      "length": 651
+    },
+    {
+      "text": "PRooF. We recall that the function solve-defect(k) returns the largest integer s' such that there exists a k-defective clique of size s'. We then consider two cases according to the relationshipbetween s and s*. In both cases, we let k = get-k(s) = [(1 - y)()]Case 1: s ≤ s*. We show that it is always possible to construct a y-EQC of size s from the maximum y-EQC g* of size s*, such that s ≤ solve-defect(get-k(s)) holds. Specifically, we begin with 9* and iteratively remove a vertex of minimum degree from the",
+      "tag": "@@3\t51.7\t297.0\t623.0\t711.0##",
+      "length": 513
+    },
+    {
+      "text": "successive updates, which continue until the bound converges to the optimal size s*. However, since each step does not guarantee a fixed reduction, the rate of progress may vary considerably across iterations. For example, there may be a substantial decrease from s2to S3, or only a negligible improvement from s1 to s2. The bottom-up doubling approach (Figure 1(b)) begins by rapidly identifyinga solution interval through the doubling phase (shown in blue),and then performs the having phase (shown in black) within that interval to locate the optimal solution. Both approaches require O(log s*) iterations in the worst case.",
+      "tag": "@@4\t316.0\t560.3\t193.0\t302.7##",
+      "length": 627
+    },
+    {
+      "text": "Correctness and Remarks. We remark that EQC-BU consists of a doubling phase, which quickly finds an upper bound of s*, followed by a halving phase that efficiently narrows the candidate intervalcontaining s*. EQC-BU is specifically tailored for our iterative frame-work for the MaxEQC problem, where the computation performed by the invoked kDC solver becomes increasingly costly as k grows.",
+      "tag": "@@4\t316.0\t560.3\t302.7\t369.7##",
+      "length": 391
+    },
+    {
+      "text": "For the correctness of EQC-BU (Algorithm 1), we observe that, by Proposition 2, check(s) is monotonic in s: once it fails at some s, it fails for all larger values; conversely, once it succeeds, it succeeds for all smaller values. After the doubling phase (Lines 2-5), we observe that the optimal value s* always lies in the interval [lbnew, ubnew]. This is because (1) Ibnew is only increased when a feasible candidate is found in Lines 2-5, and (2) ubnew = min(lb + gap - 1, ub) is set in Line 6 when lb + gap > ub or an infeasible candidate is detected in Line 3. We then enter the halving (i.e., binary search) phase on thisnarrowed interval. In each iteration of the binary search, the mid-point test either raises the lower bound or lowers the upper bound while preserving the invariant. The process terminates precisely when the two bounds coincide, at which point the common value must be s*. Thus, EQC-BU is correct.",
+      "tag": "@@4\t314.3\t560.3\t368.0\t522.3##",
+      "length": 925
+    },
+    {
+      "text": "(1) Doubling Phase (Lines 2-5). The doubling phase initializesthe step size gap to 1 (Line 2) and iteratively calls check(lb + gap)for increasing values of gap if lb + gap does not exceed the currentupper bound ub (Line 3). If check returns true, then by Proposi-tion 2, lb + gap is feasible, which implies lb + gap ≤ s*. This value is then used to update the lower bound lbnew (Line 4), which will be the starting point for the halving phase. Then, in Line 5, the algorithm doubles gap to expand the interval upward, aiming to quickly approach or exceed s*. This process repeats until either thefeasibility check fails or ub is reached in Line 3. Note that if the cur-rent candidate value of lb +gap is infeasible, we know s* < Ib+gap,which will be used to update ubnew in the halving phase.(2) Halving Phase (Lines 6-12). After the doubling phase termi-precisely locate the optimal value s*. In this phase, the refined inter-val [lbnew, ubnew] is set according to the final state after doubling (Line 6). The halving phase then performs a standard binary search within this narrowed interval. In each iteration, it tests the midpoint",
+      "tag": "@@4\t51.7\t297.0\t380.3\t578.3##",
+      "length": 1135
+    },
+    {
+      "text": "nates, the algorithm proceeds to a binary search (halving) phase to",
+      "tag": "@@4\t52.3\t294.3\t522.3\t533.7##",
+      "length": 67
+    },
+    {
+      "text": "We then analyze the number of calls to check in EQc-BU (and will discuss the time complexity in Section 6). The doubling phase (Lines 2-5) performs at most [log2 s*] + 1 calls to check, since the algorithm starts from a small candidate size (e.g., 1) and doubles the size until it exceeds the actual optimal size s*. Once a valid upperbound is detected, where this upper bound is clearly at least s*and at most 2s*, the doubling phase terminates. In the subsequent halving phase (Lines 6-12), the search interval lies strictly below 2s* and is halved in each iteration. Thus, the number of iterations in this phase is also bounded by [log2 s*]. Overall, the total number of calls to check is bounded by O(log s*).",
+      "tag": "@@4\t316.0\t560.3\t522.3\t643.3##",
+      "length": 713
+    },
+    {
+      "text": "mid = [(lbnew + ubnew)/2]. If check(mid) returns true, the lower bound lbnew is updated to mid; otherwise, the upper bound ubnew",
+      "tag": "@@4\t52.3\t295.3\t578.3\t600.7##",
+      "length": 128
+    },
+    {
+      "text": "is set to mid - 1 (Lines 7-12). This binary refinement continues until Ibnew = ubnew, at which point the optimal value s* is identified. Finally, EQC-BU returns Ibnew as s* in Line 13.Comparison of Top-Down and Bottom-Up Strategies. To facil-arrows indicate updates to the upper bound, while solid arrows the top-down iterative strategy, in which it attempts to tighten the upper bound on the solution size. Dashed arrows represent these",
+      "tag": "@@4\t50.7\t299.3\t600.7\t712.7##",
+      "length": 437
+    },
+    {
+      "text": "itate a clearer comparison between the top-down and bottom-up iterative frameworks, Figure 1 presents both strategies. Dashed represent improvements to the lower bound. Figure 1(a) illustrates",
+      "tag": "@@4\t53.3\t296.0\t645.0\t689.0##",
+      "length": 192
+    },
+    {
+      "text": " 5  Our Novel Heuristic Strategies",
+      "tag": "@@4\t314.3\t486.3\t650.0\t664.0##",
+      "length": 34
+    },
+    {
+      "text": "Since our bottom-up framework EQC-BU (Section 4) initiates iter-ations from a lower bound, i.e., a value smaller than the optimal value s*, obtaining a larger lower bound in polynomial time through heuristics can reduce the total number of required iterations and",
+      "tag": "@@4\t316.0\t560.3\t666.7\t710.3##",
+      "length": 263
+    },
+    {
+      "text": "thus improve overall efficiency. In this section, we propose novel heuristic strategies to compute a large lower bound for MaxEQC.",
+      "tag": "@@5\t52.3\t296.0\t255.7\t278.0##",
+      "length": 130
+    },
+    {
+      "text": "S and the candidate set C, while maintaining the y-EQC property throughout the process. Specifically, for each vertex in g, we use it as a starting point (ie., a seed) and initialize the selected set with this seed. At each iteration, we update the selected set by adding two vertices and removing one vertex, guided by a score function thataims to maximize the quality of the solution. After every update,we verify that the subgraph induced by the selected set remains a y-EQC. This iterative process proceeds until the number of missingedges in the subgraph induced by the selected set exceeds the allow-able threshold. In particular, given the largest y-EQC g' identified so far, we compute the maximum number of missing edges permitted for a y-EQC of size |V(g')I + 1, since our goal is to find a larger one. After evaluating every vertex in g as a seed, we select the largest y-EQC found during this process as our final solution.",
+      "tag": "@@5\t315.0\t561.3\t280.3\t435.7##",
+      "length": 935
+    },
+    {
+      "text": "5.1 Basic Heuristic Methods",
+      "tag": "@@5\t53.3\t199.7\t287.0\t298.7##",
+      "length": 27
+    },
+    {
+      "text": "We present two basic heuristic methods Degen and Degen-Opt in Algorithm 2, both adapted from the heuristics in KDc [8]. Thesemethods utilize the concept of the degeneracy ordering, which is ob-tained by iteratively removing the vertex with the smallest degree from the graph [4]. The first basic heuristic algorithm Degen (Lines6-9 of Algorithm 2) iteratively removes the vertex with the mini-mum degree until the remaining subgraph forms a y-EQC. However,Degen has a structural limitation: once a vertex is selected into thesolution, all subsequent vertices in the degeneracy ordering are in-evitably included as well. This inflexible selection mechanism results in a rigid combination process, thereby restricting the ability of the algorithm to explore more promising candidate subgraphs.",
+      "tag": "@@5\t50.7\t297.0\t301.0\t435.7##",
+      "length": 791
+    },
+    {
+      "text": "Degen-Opt in Algorithm 2 partially relaxes this restriction. Specif-ically, for each vertex u in the graph, we consider the subgraphinduced by its closed neighborhood, i.e., Ng[u] = {o E V—=u or (u,o) e E), and execute Degen on this subgraph. In this way,each vertex has more opportunities to be included in the solution. Nevertheless, while Degen-Opt expands the combination space byconstructing multiple sequences and thereby allows more flexibil-ity in vertex selection, it still relies on fixed suffixes of degeneracy sequences. Moreover, since Degen-Opt is applied only to subgraphsinduced by closed neighborhoods, the diameter of any resulting so-lution is at most 2, which is not a necessary condition for edge-based quasi-cliques. Thus, although Degen-Opt alleviates the rigidity ofDegen to some extent, it does not resolve the limitation and addi-tionally imposes an unnecessary restriction on solution diameter.",
+      "tag": "@@5\t51.7\t298.3\t433.0\t587.3##",
+      "length": 921
+    },
+    {
+      "text": "We note that the score function is designed to maximize the size of the heuristic solution by prioritizing the addition of vertices that increase the density of the subgraph induced by the selected set and the removal of those that decrease it. We adopt the scoring function from [13], which is detailed in Appendix B for completeness.",
+      "tag": "@@5\t316.0\t559.7\t436.3\t492.7##",
+      "length": 335
+    },
+    {
+      "text": "EQC-Heu. Our heuristic strategy EQC-Heu is summarized in Algo-",
+      "tag": "@@5\t317.7\t561.3\t491.0\t502.3##",
+      "length": 62
+    },
+    {
+      "text": "rithm 3. We first initialize the current largest y-EQC g' and the",
+      "tag": "@@5\t317.7\t559.7\t502.3\t514.0##",
+      "length": 65
+    },
+    {
+      "text": "maximum number k of missing edges permitted for a y-EQC of size",
+      "tag": "@@5\t317.7\t559.7\t513.0\t524.7##",
+      "length": 63
+    },
+    {
+      "text": "[V(g')| + 1 in Line 1 and consider each vertex u in V(g) as a seed",
+      "tag": "@@5\t318.3\t559.7\t524.7\t535.3##",
+      "length": 66
+    },
+    {
+      "text": "in Lines 2-10. For each u, we initialize the selected set S ← {u}and the candidate set C ← V \\ S in Line 3. We then iteratively",
+      "tag": "@@5\t316.0\t560.3\t533.0\t557.0##",
+      "length": 127
+    },
+    {
+      "text": "update S and C by adding two vertices from C to S (Line 7) and",
+      "tag": "@@5\t317.7\t559.7\t557.7\t568.3##",
+      "length": 62
+    },
+    {
+      "text": "removing one vertex from S to C (Line 8), using AddBestVertex",
+      "tag": "@@5\t317.7\t559.7\t568.3\t580.0##",
+      "length": 61
+    },
+    {
+      "text": "and RemoveworstVertex, which select vertices according to their",
+      "tag": "@@5\t316.7\t559.7\t579.0\t590.0##",
+      "length": 63
+    },
+    {
+      "text": "scores. Then the UpdateScore function computes the score for",
+      "tag": "@@5\t317.7\t559.7\t590.0\t601.3##",
+      "length": 60
+    },
+    {
+      "text": " 5.2  Our Dynamic Refined Heuristic Strategies",
+      "tag": "@@5\t51.7\t287.0\t594.0\t608.0##",
+      "length": 46
+    },
+    {
+      "text": "each vertex based on the current selected set S and the candidate",
+      "tag": "@@5\t317.7\t559.7\t600.7\t612.0##",
+      "length": 65
+    },
+    {
+      "text": "To further mitigate the inflexibility caused by the combination of Degen-Opt, we proposed our dynamic refined heuristic method EQC-Heu-Pro, which dynamically refines the heuristic solution by iteratively removing and adding vertices. This strategy is designed to overcome the constraints on candidate solution construction.",
+      "tag": "@@5\t52.3\t296.0\t610.3\t665.7##",
+      "length": 323
+    },
+    {
+      "text": "set C. (The details of AddBestVertex, RemoveWorstVertex, and",
+      "tag": "@@5\t316.7\t560.3\t612.0\t623.0##",
+      "length": 60
+    },
+    {
+      "text": "UpdateScore are shown in Appendix B.) Importantly, after every",
+      "tag": "@@5\t316.7\t559.7\t623.0\t634.3##",
+      "length": 62
+    },
+    {
+      "text": "update, we ensure that the subgraph induced by S continues to",
+      "tag": "@@5\t317.7\t558.7\t634.3\t646.0##",
+      "length": 61
+    },
+    {
+      "text": "satisfy the y-EQC property (Line 4). Once a larger y-EQC is found,",
+      "tag": "@@5\t316.7\t559.7\t645.0\t656.7##",
+      "length": 66
+    },
+    {
+      "text": "we update g' accordingly in Lines 5-6. The process repeats until",
+      "tag": "@@5\t316.7\t559.7\t656.0\t667.3##",
+      "length": 64
+    },
+    {
+      "text": "Algorithmic Overview. Our dynamic refined heuristic strategies take as input a feasible y-EQC g and iteratively adjust its vertex set to potentially obtain a larger heuristic solution. The core idea is to dynamically add and remove vertices between the selected set",
+      "tag": "@@5\t51.7\t296.0\t664.0\t710.3##",
+      "length": 265
+    },
+    {
+      "text": "the number of missing edges in the current selected set exceeds",
+      "tag": "@@5\t316.0\t559.7\t666.7\t678.0##",
+      "length": 63
+    },
+    {
+      "text": "the allowable threshold, which is recalculated based on the size of",
+      "tag": "@@5\t316.7\t560.3\t677.3\t689.0##",
+      "length": 67
+    },
+    {
+      "text": "the largest y-EQC found so far. Finally, after all vertices in V(g) are",
+      "tag": "@@5\t316.7\t559.7\t689.0\t700.3##",
+      "length": 71
+    },
+    {
+      "text": "considered as seeds, we return the largest y-EQC found (Line 10).",
+      "tag": "@@5\t316.7\t557.0\t699.7\t711.0##",
+      "length": 65
+    },
+    {
+      "text": "each iteration, thereby potentially obtaining a larger lower bound for MaxEQc. Due to space limitations, the detailed pseudocode and implementation of EQC-Pro are provided in Appendix C.",
+      "tag": "@@6\t316.7\t559.7\t85.7\t119.7##",
+      "length": 186
+    },
+    {
+      "text": "Remarks and Complexity Analyses. We note that get-k canbe directly implemented, while solve-defect can leverage exist-ing kDC algorithms [8, 9, 15]. In our implementation, we adopt the state-of-the-art algorithm kDC-two [9] for solve-defect. For the time complexity of EQC-Pro, we note that EQC-Pro essentially implements the bottom-up doubling iterative framework EQC-BU described in Section 4. As discussed there, the number of iterationsis O(log s*). In each iteration, the algorithm invokes solve-defect,which dominates the computational cost, while the accompanyingheuristic method EQC-Heu-Pro runs in polynomial time and is in-voked only once per iteration. The complexity of kDc-two (used for solve-defect in our implementation) is O*(Bg) [9], where βk is the largest real root of the equation xk2 - 2xk+1+1 = 0. and O* omits polynomial factors. Note that the complexity of solve-defect increases monotonically with k. By our analysisof EQC-BU, the largest k that EQC-Pro needs to handle is k =get-k(2s*). Thus, the complexity of EQC-Pro is O*(β2), which is asymptotically better than the complexities of both QCiique andFPCE, each of which has complexity O*(2\"). For space complexity,EQC-Pro is O(m+n) as both kDC-two and the heuristic components such as EQC-Heu-Pro maintain linear-sized structures.",
+      "tag": "@@6\t315.0\t562.0\t118.7\t352.3##",
+      "length": 1308
+    },
+    {
+      "text": "Improved EQc-Heu-Pro. Although EQC-Heu alleviates the issueof inflexible vertex combinations, applying it directly to the en-tire graph is ineffcient. For large graphs, maintaining set-relatedinformation incurs substantial memory overhead, and the associ-ated random access patterns degrade cache performance, therebyreducing overall efficiency. To address these challenges, we pro-pose EQC-Heu-Pro, which applies the heuristic to multiple smallersubgraphs rather than the entire graph, as in Algorithm 4. Specif-cally, EQC-Heu-Pro first extracts the subgraph induced by the closed neighborhood Ng [V(g)] of the current solution g (Line 2), and thenapplies EQC-Heu to this induced subgraph to obtain a refined solu-tion g'. If no improvement in size is achieved (i.e., |V(g')| = [V(g)]),the process terminates (Line 3); otherwise, g is updated to g' andthe procedure is repeated (Line 4). This iterative refinement en-sures efficiency and addresses the problem of inflexible solution construction without compromising solution quality.",
+      "tag": "@@6\t51.7\t297.0\t222.7\t400.0##",
+      "length": 1035
+    },
+    {
+      "text": " Experiments7",
+      "tag": "@@6\t330.0\t333.3\t363.0\t372.0##",
+      "length": 13
+    },
+    {
+      "text": "Algorithms. We compare EQc-Pro with state-of-the-art exact methods for the maximum edge-based quasi-clique problem (Max EQC). ● QClique2: the state-of-the-art branch-and-bound algorithm [36]. · FPCE?: a baseline adapted from the algorithm for enumerating all maximal y-EQCs above a given size threshold [35]. We modify it updating the lower bound accordingly to improve pruning.We also evaluate the proposed bottom-up framework (Section 4)and the proposed heuristic method EQC-Heu-Pro (Section 5). ● EQC-TD: Algorithm 5, the top-down iterative approach.● EQC-NH: A variant of EQC-Pro designed to quantify the contribu-tion of EQC-Heu-Pro. All components in EQC-Pro that involve the use of EQC-Heu-Pro are removed in this variant. All algorithms are coded in C++ and compiled using g++ with -03. Experiments are conducted on a machine with an Intel 2.60GHzCPU and 256GB RAM, running Ubuntu 20.04.6. We enforce a maxi-mum runtime of 3 hours (10,800 seconds) per instance. Datasets. We conduct experiments on the two collections fromNetwork Repository, which are widely used in related studies. (1)Real-World Collection4: 139 real-world graphs; and (2) Facebook Collection? : 114 Facebook social networks.",
+      "tag": "@@6\t315.3\t568.0\t376.3\t614.7##",
+      "length": 1202
+    },
+    {
+      "text": "Time Complexity Analyses. We briefly analyze the time com-plexities of EQC-Heu and EQC-Heu-Pro. First, in Algorithm 2, com-overall time O(△gm), where △g is the maximum degree. For EQC-Heu (s*)2 iterations, the total time is O(△G(s*)3). Finally, EQC-Heu-Pro",
+      "tag": "@@6\t52.3\t300.3\t399.3\t477.0##",
+      "length": 256
+    },
+    {
+      "text": "puting degeneracy orderings on neighborhood subgraphs gives (Algorithm 3), the main cost lies in updating scores for neighbors of the current set S. Each update takes O(△gs*) time, and with at most (Algorithm 4) calls EQC-Heu up to s* times, yielding O(△g(s*)4).",
+      "tag": "@@6\t52.3\t296.0\t422.3\t488.3##",
+      "length": 262
+    },
+    {
+      "text": "for MaxEQC by maintaining the largest solution found so far and",
+      "tag": "@@6\t325.0\t559.7\t434.0\t445.3##",
+      "length": 63
+    },
+    {
+      "text": "6 Our Final Iterative Algorithm: EQc-Pro",
+      "tag": "@@6\t51.7\t262.0\t497.3\t509.0##",
+      "length": 40
+    },
+    {
+      "text": "Building on the insights from the bottom-up iterative framework (Section 4) and heuristic strategies (Section 5), we introduce our final algorithm EQC-Pro. We frst outline two key observations that guide the design of EQC-Pro and improve its practical performance Observation 1. Additional information can be derived from the function solve-defect(k). In particular, when the check function in Algorithm 1 returns true, a solution to the kDC problem can beconstructed directly. Moreover, since get-k( ) is a floor function,multiple values of s may map to the same k, allowing solutions of kDC for one s to be reused for other s with the same k.",
+      "tag": "@@6\t50.7\t296.0\t513.0\t623.0##",
+      "length": 644
+    },
+    {
+      "text": "Observation 2. Within a single iteration in Algorithm 1, the lower bound si obtained corresponds to the solution of the kDC problem for a particular value of k. However, since our ultimate objective is to determine the lower bound s* for the MaxEQC problem, there remains potential for improvement by leveraging this relationship.",
+      "tag": "@@6\t52.3\t296.0\t622.0\t678.0##",
+      "length": 330
+    },
+    {
+      "text": "7.1  Comparison with Existing Algorithms",
+      "tag": "@@6\t316.7\t532.3\t624.7\t636.0##",
+      "length": 40
+    },
+    {
+      "text": "Number of Solved Instances. We note that an instance is consid-ered solved only if an exact solution is found within the given time",
+      "tag": "@@6\t316.7\t559.7\t638.7\t660.7##",
+      "length": 131
+    },
+    {
+      "text": "2We re-implemented the algorithm based on the description in [36]. Our implementa-tion achieves better performance compared to the results reported in their paper. https://github.com/ahsarur-research/FPCE 4http://cs.is.ac.cn/caisw/Resource/realworld%20graphs.tar.gz Shttps://networkrepository.com/socfb.php",
+      "tag": "@@6\t316.0\t560.3\t665.7\t711.0##",
+      "length": 306
+    },
+    {
+      "text": "Based on these observations, we (1) cache the results for previ-ously solved values of k to enable direct reuse in subsequent itera-tions, and (2) apply EQC-Heu-Pro to extend the solution obtained in",
+      "tag": "@@6\t51.7\t296.0\t678.0\t711.0##",
+      "length": 199
+    },
+    {
+      "text": "300-second time limits, respectively, with varying y values from 0.9 to 0.99. We have the following observations. First, the number of solved instances sharply decreases as y becomes smaller. This isbecause a lower value of y corresponds to a looser constraint on y-EQC, which significantly weakens the effectiveness of pruning and reduction rules in branch-and-bound methods. Second, EQc-Pro consistently outperforms the two baselines across all tested values of y. For example, in Figure 2(a), when y = 0.98 on the Facebook collection, EQC-Pro solves all 114 instances, while Qclique and FPCE only solve 5 and 9 instances, respectively. For the Real-World collection, at y = 0.9 under the 300-second time limit, Qclique and FPCE solve 48 and 55 instances, respectively, whereas EQC-Pro solves 65 instances as shown in Figure 2(d). The significant speedup achieved by EQc-Pro results from transforming the problem into asequence of hereditary subproblems, which substantially acceler-ates the search process. Compared to the Real-World collection, the Facebook graphs are denser, making the problem more challengingto solve under the same values of y. The advantage of EQC-Pro be-comes more obvious at higher y, where the problem is moderately constrained. However, as y decreases, the search space increasesdramatically, resulting in greater computational difficulty and re-ducing the performance gap between EQc-Pro and the baselines.",
+      "tag": "@@7\t314.3\t561.3\t303.7\t547.0##",
+      "length": 1437
+    },
+    {
+      "text": "S*",
+      "tag": "@@7\t283.7\t293.7\t513.0\t520.7##",
+      "length": 2
+    },
+    {
+      "text": "444",
+      "tag": "@@7\t282.0\t294.3\t520.7\t544.7##",
+      "length": 3
+    },
+    {
+      "text": "35",
+      "tag": "@@7\t282.7\t292.0\t543.0\t551.0##",
+      "length": 2
+    },
+    {
+      "text": "Figures 3 and 4 illustrate the number of solved instances over time on the Facebook and Real-World collections, respectively, for",
+      "tag": "@@7\t316.0\t559.7\t546.0\t567.7##",
+      "length": 129
+    },
+    {
+      "text": "20",
+      "tag": "@@7\t283.7\t292.0\t549.3\t558.7##",
+      "length": 2
+    },
+    {
+      "text": "22",
+      "tag": "@@7\t283.7\t292.0\t557.7\t565.0##",
+      "length": 2
+    },
+    {
+      "text": "1.13",
+      "tag": "@@7\t141.0\t155.3\t563.0\t573.0##",
+      "length": 4
+    },
+    {
+      "text": "rt-retweet-",
+      "tag": "@@7\t57.3\t84.7\t565.0\t573.3##",
+      "length": 11
+    },
+    {
+      "text": "11.93",
+      "tag": "@@7\t218.7\t234.3\t565.0\t574.3##",
+      "length": 5
+    },
+    {
+      "text": "1.44",
+      "tag": "@@7\t113.0\t125.7\t566.0\t572.7##",
+      "length": 4
+    },
+    {
+      "text": "1.26",
+      "tag": "@@7\t166.3\t178.0\t566.0\t572.7##",
+      "length": 4
+    },
+    {
+      "text": "1.1M",
+      "tag": "@@7\t246.0\t258.7\t566.0\t572.7##",
+      "length": 4
+    },
+    {
+      "text": "4.5M",
+      "tag": "@@7\t266.0\t278.7\t566.0\t572.7##",
+      "length": 4
+    },
+    {
+      "text": "16",
+      "tag": "@@7\t284.3\t292.7\t566.0\t574.3##",
+      "length": 2
+    },
+    {
+      "text": "Y  {0.92, 0.94, 0.96, 0.98}. As shown, both baseline methods con-",
+      "tag": "@@7\t316.0\t561.3\t568.3\t580.0##",
+      "length": 65
+    },
+    {
+      "text": "inf-roadNet-PA",
+      "tag": "@@7\t57.3\t99.0\t571.7\t580.7##",
+      "length": 14
+    },
+    {
+      "text": "0.31",
+      "tag": "@@7\t112.3\t128.0\t571.7\t580.7##",
+      "length": 4
+    },
+    {
+      "text": "0.39",
+      "tag": "@@7\t165.3\t179.7\t571.7\t580.7##",
+      "length": 4
+    },
+    {
+      "text": "1.37",
+      "tag": "@@7\t218.7\t232.7\t571.7\t580.7##",
+      "length": 4
+    },
+    {
+      "text": "0.46",
+      "tag": "@@7\t141.3\t153.7\t572.7\t580.7##",
+      "length": 4
+    },
+    {
+      "text": "1M",
+      "tag": "@@7\t247.0\t257.7\t572.7\t580.0##",
+      "length": 2
+    },
+    {
+      "text": "3M",
+      "tag": "@@7\t266.0\t277.0\t572.7\t580.0##",
+      "length": 2
+    },
+    {
+      "text": "909K",
+      "tag": "@@7\t245.3\t259.3\t579.0\t588.3##",
+      "length": 4
+    },
+    {
+      "text": " sistently exhibit poor performance on these datasets regardless of",
+      "tag": "@@7\t316.0\t561.3\t579.0\t590.0##",
+      "length": 67
+    },
+    {
+      "text": "sc-ldoor",
+      "tag": "@@7\t57.3\t81.3\t580.0\t588.3##",
+      "length": 8
+    },
+    {
+      "text": "211.23",
+      "tag": "@@7\t112.3\t133.0\t580.0\t589.0##",
+      "length": 6
+    },
+    {
+      "text": "212.22",
+      "tag": "@@7\t165.3\t183.7\t580.0\t589.0##",
+      "length": 6
+    },
+    {
+      "text": "22",
+      "tag": "@@7\t284.3\t292.0\t580.0\t588.3##",
+      "length": 2
+    },
+    {
+      "text": "41M",
+      "tag": "@@7\t266.0\t277.7\t580.7\t587.3##",
+      "length": 3
+    },
+    {
+      "text": "soc-delicious",
+      "tag": "@@7\t58.3\t90.7\t586.7\t595.7##",
+      "length": 13
+    },
+    {
+      "text": "0.67",
+      "tag": "@@7\t112.3\t127.3\t586.7\t595.7##",
+      "length": 4
+    },
+    {
+      "text": "2.7M",
+      "tag": "@@7\t264.3\t278.7\t586.7\t595.7##",
+      "length": 4
+    },
+    {
+      "text": "4.64",
+      "tag": "@@7\t166.3\t178.7\t588.3\t594.7##",
+      "length": 4
+    },
+    {
+      "text": "536K",
+      "tag": "@@7\t245.3\t258.7\t588.3\t594.7##",
+      "length": 4
+    },
+    {
+      "text": "30",
+      "tag": "@@7\t281.0\t289.7\t590.0\t597.3##",
+      "length": 2
+    },
+    {
+      "text": "the value of y. On the Facebook collection, when y = 0.98, EQc-Pro",
+      "tag": "@@7\t316.0\t559.7\t590.0\t601.3##",
+      "length": 66
+    },
+    {
+      "text": "4.31",
+      "tag": "@@7\t112.3\t127.3\t594.7\t604.0##",
+      "length": 4
+    },
+    {
+      "text": "495K",
+      "tag": "@@7\t244.3\t259.3\t594.7\t604.0##",
+      "length": 4
+    },
+    {
+      "text": " soc-youtube",
+      "tag": "@@7\t56.3\t90.3\t595.7\t605.7##",
+      "length": 12
+    },
+    {
+      "text": "12.79",
+      "tag": "@@7\t167.0\t180.3\t595.7\t602.3##",
+      "length": 5
+    },
+    {
+      "text": "3M",
+      "tag": "@@7\t266.0\t277.0\t595.7\t602.3##",
+      "length": 2
+    },
+    {
+      "text": "22",
+      "tag": "@@7\t283.7\t292.0\t595.7\t603.0##",
+      "length": 2
+    },
+    {
+      "text": "successfully solves all 114 instances, whereas the best of the two",
+      "tag": "@@7\t316.7\t559.7\t600.7\t612.0##",
+      "length": 66
+    },
+    {
+      "text": "101.92",
+      "tag": "@@7\t165.3\t183.7\t601.3\t610.3##",
+      "length": 6
+    },
+    {
+      "text": "404K",
+      "tag": "@@7\t245.3\t259.3\t601.3\t610.3##",
+      "length": 4
+    },
+    {
+      "text": "18M",
+      "tag": "@@7\t265.3\t277.7\t601.3\t611.3##",
+      "length": 3
+    },
+    {
+      "text": "101.36",
+      "tag": "@@7\t112.3\t133.0\t602.3\t611.3##",
+      "length": 6
+    },
+    {
+      "text": "22",
+      "tag": "@@7\t283.7\t292.0\t602.3\t610.3##",
+      "length": 2
+    },
+    {
+      "text": "sc-msdoor",
+      "tag": "@@7\t57.3\t86.3\t603.0\t611.3##",
+      "length": 9
+    },
+    {
+      "text": "5.28",
+      "tag": "@@7\t218.0\t233.0\t606.7\t616.7##",
+      "length": 4
+    },
+    {
+      "text": "1.4M",
+      "tag": "@@7\t265.3\t279.3\t609.0\t618.0##",
+      "length": 4
+    },
+    {
+      "text": "soc-twitter-follows",
+      "tag": "@@7\t58.3\t105.7\t609.7\t618.0##",
+      "length": 19
+    },
+    {
+      "text": "0.24",
+      "tag": "@@7\t112.3\t126.3\t609.7\t618.7##",
+      "length": 4
+    },
+    {
+      "text": "0.16",
+      "tag": "@@7\t140.7\t154.7\t609.7\t618.7##",
+      "length": 4
+    },
+    {
+      "text": "0.25",
+      "tag": "@@7\t164.7\t178.7\t609.7\t626.3##",
+      "length": 4
+    },
+    {
+      "text": "404K",
+      "tag": "@@7\t245.3\t259.3\t609.7\t618.7##",
+      "length": 4
+    },
+    {
+      "text": "7",
+      "tag": "@@7\t286.3\t292.3\t610.0\t615.7##",
+      "length": 1
+    },
+    {
+      "text": "3335.43",
+      "tag": "@@7\t191.3\t212.0\t610.3\t618.0##",
+      "length": 7
+    },
+    {
+      "text": "baselines solves only 9. Moreover, across all tested values of y.",
+      "tag": "@@7\t316.0\t561.3\t611.3\t623.0##",
+      "length": 65
+    },
+    {
+      "text": "332K",
+      "tag": "@@7\t245.3\t259.3\t616.3\t625.3##",
+      "length": 4
+    },
+    {
+      "text": "ca-MathSciNet",
+      "tag": "@@7\t57.3\t96.3\t617.0\t625.3##",
+      "length": 13
+    },
+    {
+      "text": ".6M",
+      "tag": "@@7\t267.0\t279.3\t617.0\t625.3##",
+      "length": 3
+    },
+    {
+      "text": "25",
+      "tag": "@@7\t283.7\t292.0\t617.0\t624.7##",
+      "length": 2
+    },
+    {
+      "text": "0.18",
+      "tag": "@@7\t111.0\t125.3\t617.3\t627.7##",
+      "length": 4
+    },
+    {
+      "text": "158.14",
+      "tag": "@@7\t220.3\t236.0\t618.0\t624.7##",
+      "length": 6
+    },
+    {
+      "text": "EQC-Pro solves more instances within 30 seconds than either base-",
+      "tag": "@@7\t316.7\t561.3\t623.0\t633.7##",
+      "length": 65
+    },
+    {
+      "text": "55.5",
+      "tag": "@@7\t113.0\t127.3\t624.7\t633.7##",
+      "length": 4
+    },
+    {
+      "text": "100.45",
+      "tag": "@@7\t165.3\t183.0\t624.7\t633.7##",
+      "length": 6
+    },
+    {
+      "text": "217K",
+      "tag": "@@7\t244.3\t258.7\t624.7\t633.7##",
+      "length": 4
+    },
+    {
+      "text": "11M",
+      "tag": "@@7\t265.3\t279.3\t624.7\t633.7##",
+      "length": 3
+    },
+    {
+      "text": "sc-pwtk",
+      "tag": "@@7\t57.3\t80.7\t625.3\t634.3##",
+      "length": 7
+    },
+    {
+      "text": "26",
+      "tag": "@@7\t284.3\t292.0\t625.3\t633.7##",
+      "length": 2
+    },
+    {
+      "text": "59M",
+      "tag": "@@7\t245.3\t258.7\t631.0\t641.0##",
+      "length": 3
+    },
+    {
+      "text": "185M",
+      "tag": "@@7\t264.3\t280.3\t631.0\t641.0##",
+      "length": 4
+    },
+    {
+      "text": "22.82",
+      "tag": "@@7\t112.3\t129.7\t632.0\t641.0##",
+      "length": 5
+    },
+    {
+      "text": "23.38",
+      "tag": "@@7\t140.7\t156.3\t632.0\t641.0##",
+      "length": 5
+    },
+    {
+      "text": "28.99",
+      "tag": "@@7\t164.7\t182.0\t632.0\t642.0##",
+      "length": 5
+    },
+    {
+      "text": "1902.99",
+      "tag": "@@7\t218.7\t239.3\t632.0\t641.0##",
+      "length": 7
+    },
+    {
+      "text": "socfb-konect",
+      "tag": "@@7\t57.3\t91.3\t632.7\t642.0##",
+      "length": 12
+    },
+    {
+      "text": "7",
+      "tag": "@@7\t283.0\t289.7\t633.0\t640.3##",
+      "length": 1
+    },
+    {
+      "text": "line does within 3 hours. For example, at y = 0.96, EQC-Pro solves",
+      "tag": "@@7\t316.7\t559.7\t634.3\t645.0##",
+      "length": 66
+    },
+    {
+      "text": "184M",
+      "tag": "@@7\t264.7\t280.7\t637.3\t647.3##",
+      "length": 4
+    },
+    {
+      "text": "socfb-uci-uni",
+      "tag": "@@7\t57.3\t92.3\t639.3\t648.3##",
+      "length": 13
+    },
+    {
+      "text": "28.15",
+      "tag": "@@7\t112.3\t129.7\t639.3\t648.3##",
+      "length": 5
+    },
+    {
+      "text": "29.59",
+      "tag": "@@7\t140.7\t156.3\t639.3\t648.3##",
+      "length": 5
+    },
+    {
+      "text": "33.39",
+      "tag": "@@7\t164.7\t181.3\t639.3\t648.3##",
+      "length": 5
+    },
+    {
+      "text": "7",
+      "tag": "@@7\t284.3\t292.0\t640.3\t647.7##",
+      "length": 1
+    },
+    {
+      "text": "58M",
+      "tag": "@@7\t243.7\t256.3\t640.7\t650.0##",
+      "length": 3
+    },
+    {
+      "text": "30 instances in only 30 seconds, compared to only 3 and 7 solved by",
+      "tag": "@@7\t316.7\t559.7\t645.0\t656.7##",
+      "length": 67
+    },
+    {
+      "text": "socfb-A-anon",
+      "tag": "@@7\t58.3\t92.3\t647.7\t656.7##",
+      "length": 12
+    },
+    {
+      "text": "6857.26",
+      "tag": "@@7\t112.3\t134.7\t647.7\t656.7##",
+      "length": 7
+    },
+    {
+      "text": "3M",
+      "tag": "@@7\t247.0\t257.0\t648.3\t656.0##",
+      "length": 2
+    },
+    {
+      "text": "47M",
+      "tag": "@@7\t266.0\t278.7\t648.3\t656.7##",
+      "length": 3
+    },
+    {
+      "text": "37",
+      "tag": "@@7\t283.7\t292.0\t648.3\t655.0##",
+      "length": 2
+    },
+    {
+      "text": "socfb-B-anon",
+      "tag": "@@7\t56.0\t95.0\t651.7\t663.0##",
+      "length": 12
+    },
+    {
+      "text": "1952.97",
+      "tag": "@@7\t113.0\t135.7\t654.3\t663.3##",
+      "length": 7
+    },
+    {
+      "text": "41M",
+      "tag": "@@7\t265.3\t279.3\t654.3\t663.3##",
+      "length": 3
+    },
+    {
+      "text": "2.9M",
+      "tag": "@@7\t246.0\t258.7\t655.0\t663.3##",
+      "length": 4
+    },
+    {
+      "text": "35",
+      "tag": "@@7\t282.7\t292.0\t655.0\t662.3##",
+      "length": 2
+    },
+    {
+      "text": "QClique and FPCE, respectively, even with a 3-hour limit. On the",
+      "tag": "@@7\t316.7\t559.7\t656.0\t667.3##",
+      "length": 64
+    },
+    {
+      "text": "41",
+      "tag": "@@7\t281.3\t295.7\t660.0\t670.0##",
+      "length": 2
+    },
+    {
+      "text": "socfb-Maine59",
+      "tag": "@@7\t54.7\t96.0\t661.7\t673.3##",
+      "length": 13
+    },
+    {
+      "text": "2421.99",
+      "tag": "@@7\t113.0\t136.3\t661.7\t672.3##",
+      "length": 7
+    },
+    {
+      "text": "3247.84",
+      "tag": "@@7\t165.3\t187.0\t661.7\t671.7##",
+      "length": 7
+    },
+    {
+      "text": "486K",
+      "tag": "@@7\t264.3\t279.3\t661.7\t671.7##",
+      "length": 4
+    },
+    {
+      "text": "K",
+      "tag": "@@7\t245.3\t257.0\t663.3\t670.0##",
+      "length": 1
+    },
+    {
+      "text": "Real-World collection, EQC-Pro also consistently outperforms thetwo baselines under all tested values of y. Specifically, at y = 0.94,EQC-Pro solves 77 instances within only 30 seconds, while the best baseline solves only 68 instances even with a 3-hour limit.",
+      "tag": "@@7\t315.0\t560.3\t666.7\t710.3##",
+      "length": 260
+    },
+    {
+      "text": "limit. Figure 2 presents the number of instances solved by EQC-Pro and two baseline methods, QClique and FPCE, under 3-hour and",
+      "tag": "@@7\t51.7\t297.0\t689.0\t710.3##",
+      "length": 127
+    },
+    {
+      "text": "8Related Work",
+      "tag": "@@8\t315.0\t402.3\t85.0\t95.7##",
+      "length": 13
+    },
+    {
+      "text": "Evaluation on Large Graphs. Table 1 reports the performance of the baselines QClique and FPCE, as well as our EQC-Pro (and its variants), on large graphs with y = 0.95. Specifically, we select 15 largest graphs from the Real-World collection and 5 largest graphs from the Facebook collection, excluding extremely difficult cases in which all three algorithms fail to solve. The instances are then sorted in descending order of graph size in Table 1. We use *-\"'to indicate a timeout (i.e., 3 hours) and highlight the best results in bold. It can be observed from Table 1 that EQC-Pro consistently outperforms thetwo baselines, QClique and FPCE, across all instances. Specifically,in 13 out of 20 cases, both baselines fail to produce a solution within 3 hours, whereas EQc-Pro succeeds. For example, on the soc-delicious instance, EQC-Pro completes in 0.67 seconds, while both baselines time out, implying a speedup of at least 1.6 X 104.Furthermore, when considering the better of the two baselines,EQC-Pro achieves a speedup of over 1000x in 4 instances, at least 100X in 9 instances, and over 20× in 14 instances.",
+      "tag": "@@8\t50.7\t296.0\t85.7\t272.3##",
+      "length": 1116
+    },
+    {
+      "text": "The concept of edge-based y-quasi-clique (y-EQC) was definedin [2, 3], and has also been referred to as dense subgraph [27, 40],near-clique [6, 23, 38], or pseudo clique [35]. Existing exact ap-proaches for solving MaxEQC fall into two main categories: mixed integer programming (MIP) and branch-and-bound techniques.Since MIP-based methods [29, 34, 42] are difficult to scale in prac-tice, we focus on branch-and-bound algorithms. The first branch-and-bound algorithm for this problem was proposed by Pajouh et al. [32], who introduced a novel upper bounding technique anddemonstrated strong performance. Subsequently, QClique [36] in-corporated a new upper bound and showed that their approach iscompetitive with both MIP techniques [34, 42] and other branch-and-bound methods [32] Although QClique achieves competitiveperformance, its branching scheme is identical to that of the maxi-mal y-EQC enumeration method PCE [41], and its pruning strategy relies on a computationally expensive upper bound. FPCE [35] alsobuilds on PCE and specifically targets the maximal y-EQC enumer-ation problem, introducing several refined bounding techniques and achieving state-of-the-art performance in both maximal y-EQCenumeration and MaxEQC. Given that MaxEQC is NP-hard [34], vari-ous heuristics have been proposed for approximate solutions. Early approaches include GRASP-based methods and local search [3, 7]. Later studies explored greedy strategies [40] and, recently, advanced vertex selection and iterative refinement techniques [13, 26].",
+      "tag": "@@8\t315.0\t561.3\t97.3\t363.0##",
+      "length": 1535
+    },
+    {
+      "text": "Scalability Test. We conduct scalability experiments to evaluate the performance of EQC-Pro. The results demonstrate that EQC-Prosignificantly outperforms the baseline algorithms. Detailed experi-mental settings and results are reported in Appendix D.",
+      "tag": "@@8\t51.7\t296.0\t273.0\t318.3##",
+      "length": 251
+    },
+    {
+      "text": "7.2  Comparison with Our Variants",
+      "tag": "@@8\t52.3\t232.0\t333.3\t345.0##",
+      "length": 33
+    },
+    {
+      "text": "Evaluation on Large Graphs. Table 1 reports the performance of EQC-TD and EQC-NH under y = 0.95. We first consider the effect of different iterative frameworks by comparing EQC-Pro and EQC-TD. From Table 1, we know that EQC-Pro, benefiting from its bottom-up doubling iterative framework, can solve 13 additional instances thattime out under the top-down iterative method EQC-TD. Specifically,on ca-MathSciNet, it achieves a speedup of at least 6 × 104. For the remaining 7 instances where both EQC-Pro and EQC-TD complete within the time limit, the performance of EQC-TD is comparable to that of EQc-Pro. This is mainly due to the small final solution size s* in these cases. For instance, in soc-twitter-follows andsocfb-uci-uni, the maximum size of the 0.95-EQC is only 7, result-ing in a limited allowance for missing edges. This tight constraintindirectly improves the accuracy of upper bound estimations, nar-rowing the performance gap between EQC-Pro and EQC-TD.",
+      "tag": "@@8\t50.7\t297.0\t347.3\t514.7##",
+      "length": 969
+    },
+    {
+      "text": "As mentioned earlier, there is a quasi-clique defined based on vertex degree: a degree-based y-quasi-clique requires each vertex in the subgraph connects to at least a y-proportion of the remainingvertices [30, 37]. DDA [33] introduced a hybrid strategy that com-bines MIP formulations with an iterative refinement process. More recently, Xia et al. [43] proposed IterQC, which reformulates the original problem as a series of simpler dense subgraph problemsAnother closely related problem is the corresponding maximal enu-meration problem, for which several branch-and-bound methods,including Quick [25] and Quick+ [22], have been developed. Most recently, Yu and Long [46] proposed the state-of-the-art method FastQc by introducing new branching and pruning strategies.",
+      "tag": "@@8\t315.3\t560.3\t363.0\t495.0##",
+      "length": 771
+    },
+    {
+      "text": "For comprehensive surveys on cohesive subgraphs, see [10, 17,18, 21, 24].",
+      "tag": "@@8\t316.7\t560.3\t493.3\t516.3##",
+      "length": 73
+    },
+    {
+      "text": "We next consider EQC-Heu-Pro (Algorithm 4) by comparing EQC-Pro and EQC-NH. The integration of EQC-Heu-Pro leads to a reduction in runtime. Among the 20 instances in Table 1, 17 instances exhibit accelerated performance, with two additionaltime-out cases successfully solved by EQc-Pro. In most cases, incor-porating EQC-Heu-Pro yields a clear efficiency gain. We now exam-ine the few cases with less favorable outcomes. In inf-road-usa,for instance, EQC-NH outperforms EQC-Pro, consistent with ourearlier observation that the heuristic component Degen-Opt, re-tained in EQC-NH, can already produce high-quality solutions in certain settings. The speedup is also marginal in socfb-uci-uniand socfb-konect, where EQc-Pro is faster by only about 5 sec-onds, despite total running times of approximately 28.15 and 22.82 seconds, respectively. This limited improvement mainly stems from the dominance of Degen-opt in the total computation time onlarge-scale graphs. As both EQC-Pro and EQC-NH retain this com-ponent, the observed speedup is less obvious, despite a substantial reduction in the number of required iterations.",
+      "tag": "@@8\t51.7\t296.0\t511.3\t711.0##",
+      "length": 1120
+    },
+    {
+      "text": "9 Conclusion",
+      "tag": "@@8\t315.3\t391.7\t523.7\t535.3##",
+      "length": 12
+    },
+    {
+      "text": "In this paper, we proposed an efficient iterative algorithm EQc-Profor the MaxEQC problem. Reducing MaxEQC to hereditary subprob-lems improves theoretical efficiency, while a bottom-up doubling framework and novel heuristics further boost performance. Exper iments show that EQc-Pro outperforms state-of-the-art methods. Future work includes extending EQC-Pro to weighted graphs.",
+      "tag": "@@8\t316.0\t561.3\t540.3\t606.3##",
+      "length": 379
+    },
+    {
+      "text": "Acknowledgments",
+      "tag": "@@8\t317.0\t410.7\t614.7\t626.0##",
+      "length": 15
+    },
+    {
+      "text": "This research is partially supported by the Guangdong Basic and Applied Basic Research Foundation (No. 2025A1515060015), by the Shenzhen Science and Technology Program (No. GX WD20231129111306002 and KJZD20231023094701003),by the Major Key Project of PengchengLaboratory (No. PCL2024A05), and by the Key Laboratory of Inter-disciplinary Research of Computation and Economics (Shanghai University of Finance and Economics), Ministry of Education.",
+      "tag": "@@8\t316.0\t587.0\t628.7\t706.3##",
+      "length": 445
+    },
+    {
+      "text": "[30] Hideo Matsuda, Tatsuya Ishihara, and Akihiro Hashimoto. 1999. Classifying molecular sequences using a linkage graph with their pairwise similarities. The oretical Computer Science 210, 2 (1999), 305 - 325. [31] Tamas Nepusz, Haiyuan Yu, and Alberto Paccanaro. 2012. Detecting overlappingprotein complexes in protein-protein interaction networks. Nature Methods 9,(2012), 471-472.] Foad Mahdavi Pajouh, Zhuqi Miao, and Balabhaskar Balasundaram. 2014. A[32]branch-and-bound approach for maximum quasi-cliques. Annals of Operations Research 216, 1 (2014), 145-161. [33]  Grigory Pastukhov, Alexander Veremyev, Vladimir Boginski, and Oleg A. Prokopyev. 2018. On maximum degree-based y-quasi-clique problem: Com plexity and exact approaches. Networks 71, 2 (2018), 136-152. [34]  Jeffrey Pattillo, Alexander Veremyev, Sergiy Butenko, and Vladimir Boginski.2013. On the maximum quasi-clique problem. Discrete Applied Mathematics 161,1-2 (2013), 244-257. [35]  Ahsanur Rahman, Kalyan Roy, Ramiza Maliha, and Townim Faisal Chowdhury. 2024. A fast exact algorithm to enumerate maximal pseudo-cliques in large sparse graphs. In SIGKDD.2479-2490.[36]  Celso Ribeiro and Jose Riveaux Merino. 2019. An exact algorithm for the maxi-mum quasi-clique problem. International Transactions in Operational Research 26,1 (2019), 129-151. [37]  Seyed-Vahid Sanei-Mehri, Apurba Das, Hooman Hashemi, and Srikanta Tirthapura. 2021. Mining Largest Maximal Quasi-Cliques. ACM Transactions on Knowl-edge Discovery from Data 15 (2021), 81:1-81:21.[38] Shu Tadaka and Kengo Kinoshita 2016. NCMine: Core-peripheral based func-tional module detection using near-clique mining. Bioinformatics 32, 22 (2016),3454-3460.[39]  Brian K. Tanner, Gary Warner, Henry Stern, and Scott Olechowski. 2010. Koob-face: The evolution of the social botnet. In 2010 eCrime Researchers Summit. 1-10.[40]  Charalampos E. Tsourakakis, Francesco Bonchi, Aristides Gionis, Francesco Gullo,and Maria A. Tsiarli. 2013. Denser than the densest subgraph: Extracting optimal quasi-cliques with quality guarantees. In SIGKDD. 104-112. [41]  Takeaki Uno. 2010. An efficient algorithm for solving pseudo clique enumeration problem. Algorithmica 56, 1 (2010), 3-16.1 Andrey Veremyev, Oleg A. Prokopyev, Sergiy Butenko, and Eduardo L. Pasiliao.[42]2016. Exact MP-based approaches for fnding maximum quasi-cliques and dense subgraphs. Computational Optimization and Applications 64, 1 (2016), 177-214.[43]  Hongbo Xia, Kaiqiang Yu, Shengxin Liu, Cheng Long, and Xun Zhou. 2025. Max-imum degree-based quasi-clique search via an iterative framework. In SIGKDD. 3285-3296. [44]Hnu, AbtPaanar lyTrif dMkGetin 2006dicting interactions in protein networks by completing defective cliques. Bioin-formatics 22, 7 (2006), 823-829. [45] Kaiqiang Yu and Cheng Long. 2021. Graph Mining Meets Fake News Detection. In Data Science for Fake News. 169-189. [46]  Kaiqiang Yu and Cheng Long 2023. Fast maximal quasi-clique Enumeration: Apruning and branching co-design approach. Proceedings of the ACM on Manage-ment of Data (SIGMOD) 1, 3 (2023), 1-26.",
+      "tag": "@@9\t313.7\t561.3\t85.7\t480.0##",
+      "length": 3074
+    },
+    {
+      "text": "References",
+      "tag": "@@9\t53.3\t108.0\t86.7\t95.7##",
+      "length": 10
+    },
+    {
+      "text": "[1]  Source Code. https:/github.com/SmartProbiotics/EQC-Pro. [2] James Abell, Panos M. Pardalos, and Mauricio G. C. Resende. 1998. On maximum clique problems in very large graphs. In Proceedings of the DIMACS Workshop on External Memory Algorithms. 119-130. [3] J. Abelle, M. G. C. Resende, and S. Sudarsky. 2002. Massive quasi-lique detection. In LATIN. 598-612.Vladimir Batagelj and Matjaz Zaversnik. 2003. An O(m) algorithm for cores[4]decomposition of networks. CoRR cs.DS/0310049 (2003). [5]  Punam Bedi and Chhavi Sharma. 2016. Community detection in social networks. Data Mining and Knowledge Discovery 6, 3 (2016),115-135. [6]  Zvika Brakerski and Boaz Patt-Shamir. 2011. Distributed discovery of large near-cliques. Distributed Computing 24 (2011), 79-89. [7] Marco Brunato, Holger H. Hoos, and Roberto Batti. 2007. On effectively finding maximal quasi-cliques in graphs. In LION. 41-55. [8]  Lijun Chang. 2023. Efficient maximum k-defective clique computation with improved time complexity. Proceedings of the ACM on Management of Data (SIGMOD) 1, 3 (2023), 1-26. [9] Lijun Chang. 2024. Maximum defective clique computation: Improved timecomplexities and practical performance. Proceedings of the VLDB Endowment 18,2 (2024), 200-212. [10]  Lijun Chang and Lu Qin. 2018. Cohesive Subgraph Computation over Large Sparse Graphs. Springer Publishing Company,Incorporated. [11]  Lijun Chang, Mouyi Xu, and Darren Strash. 2022. Effcient maximum k-plex computation over large sparse graphs. Proceedings of the VLDB Endowment 16, 2 (2022), 127-139. [12]  Lijun Chang and Kai Yao. 2024. Maximum k-plex computation: Theory andpractice. Proceedings of the ACM on Management of Data (SIGMOD) 2, 1 (2024),1-26. [13]  Jiejiang Chen, Shaowei Cai, Shiwei Pan, Yiyuan Wang, Qingwei Lin, Mengyu Zhao, and Minghao Yin. 2021. NuQClq: An effective local search algorithm for maximum quasi-clique problem. In AAAl. 12258-12266.[14] Xiaoyu Chen, Yi Zhou, Jin-Kao Hao, and Mingyu Xiao. 2021. Computing maxi-mum k-defective cliques in massive graphs. Computers & Operations Research 127 (2021), 105131.[15]  Qiangqiang Dai, Ronghua Li, Donghang Cui, and Guoren Wang. 2024. Theoreti-cally and practically effcient maximum defective clique search. Procedings of the ACM on Management of Data (SIGMOD) 2, 4 (2024), 1-27. [16]  Qiangqiang Dai, Rong-Hua Li, Meihao Liao, and Guoren Wang. 2023. Maximal defective clique enumeration. Proceedings of the ACM on Management of Data (SIGMOD) 1, 1 (2023), 1-26. [17]  Yixiang Fang, Xin Huang, Lu Qin, Ying Zhang, Wenjie Zhang, Reynold Cheng. and Xuemin Lin. 2020. A survey of community search over big graphs. The VLDB Joumal 29 (2020), 353-392. [18] Yixiang Fang, Kai Wang, Xuemin Lin, and Wenjie Zhang. 2021. Cohesive subgraphsearch over big heterogeneous information networks: Applications, challenges,and solutions. In Procedings of the ACM on Management of Data (SIGMOD). 2829-2838. [19] Jian Gao, Zhenghang Xu, Ruizhi Li, and Minghao Yin. 2022. An exact algorithm with new upper bounds for the maximum k-defective clique problem in massive sparse graphs. In AAAL 10174 - 10183. Shuohao Gao, Kaiqiang Yu, Shengxin Liu, and Cheng Long. 2024. Maximum[20]  S k-plex search: An alternated reduction-and-bound method. Proceedings of the VLDB Endowment 18 (2024), 363-376. [21]  Xin Huang, Laks V. S. Lakshmanan, and Jianliang Xu. 2019. Community Search over Big Graphs. Morgan & Claypool Publishers. Jalal Khalil, Da Yan, Guimu Guo, and Lyuheng Yuan. 2022. Parallel mining of[22] J large maximal quasi-cliques. The VLDB Journal 31, 4 (2022),649-674. [23] Christian Komusiewicz, Manuel Sorge, and Kolja Stahl. 2015. Finding connected subgraphs of fixed minimum density: Implementation and experiments In SEA. 82-93. [24]  Victor E. Lee, Ning Ruan, Ruoming Jin, and Charu Aggarwal. 2010. A Survey of Algorithms for Dense Subgraph Discovery. In Managing and Mining Graph Data. Springer, 303-336. Guimei Liu and Limsoon Wong. 2008. Effective pruning techniques for mining[25]quasi-cliques. In ECML/PKDD 33-49. [26] : Shuhong Liu, Jincheng Zhou, and Mingjie Lei. 2024. An optimization algorithm for maximum quasi-clique problem based on information feedback model. Peerj Computer Science 10 (2024), e2173. [27] James Long and Chris Hartman. 2010. ODES: An overlapping dense sub-graph algorithm. Bioinformatics 26, 21 (2010), 2788-2789.Chunyu Luo, Yi Zhou, Zhengren Wang, and Mingyu Xiao. 2024. A faster branch-[28](ing algorithm for the maximum k-defective clique problem. In ECAL 4132-4139. [29] Fabrizi Marinll, AndreaPizzuti, andFabrizi Rossi. 2021. LP-based dualboundsfor the maximum quasi-clique problem. Discrete Applied Mathematics 296 (2021),118-140.",
+      "tag": "@@9\t50.0\t297.7\t95.7\t695.3##",
+      "length": 4676
+    },
+    {
+      "text": " Omitted Details of Top-down Iterative",
+      "tag": "@@9\t334.3\t526.3\t502.3\t514.0##",
+      "length": 38
+    },
+    {
+      "text": "A",
+      "tag": "@@9\t317.7\t337.7\t503.3\t512.3##",
+      "length": 1
+    },
+    {
+      "text": "Framework in Section 3",
+      "tag": "@@9\t335.0\t455.7\t515.7\t526.3##",
+      "length": 22
+    },
+    {
+      "text": "Our Top-down Iterative Baseline EQc-TDA.1(",
+      "tag": "@@9\t343.3\t347.7\t531.7\t542.2##",
+      "length": 42
+    },
+    {
+      "text": "We first detail our top-down iterative baseline algorithm EQc-TD (mentioned in Section 3) and demonstrate its correctness.Overview. We observe that the maximum y-EQC g* is also a maxi-mum k*-defective clique inG, where k* = get-k(s*), which follows directly from the definitions. Motivated by this equivalence, we design the top-down iterative framework that reduces MaxEQC to asequence of kDC subproblems. Since the optimal size s* is unknown,the framework starts from an initial upper bound and iterativelytightens it by solving the corresponding kDC problem. At each it-eration, the obtained solution either certifies feasibility or yields a strictly smaller upper bound on s*, thereby narrowing the search space until the optimal y-EQC is identified. We then detail the algorithm and provide a formal proof of its correctness. EQC-TD Algorithm. Our top-down iterative framework (named as",
+      "tag": "@@9\t315.0\t561.3\t545.3\t698.7##",
+      "length": 891
+    },
+    {
+      "text": " EQC-TD) is shown in Algorithm 5. Line 1 initializes an upper bound",
+      "tag": "@@9\t316.7\t559.7\t700.3\t711.0##",
+      "length": 67
+    },
+    {
+      "text": "and with Proposition 2, we have ub' = solve-defect(get-k(ub) <ub. Combining the two bounds yields s* < ub' < ub.口",
+      "tag": "@@10\t316.7\t563.7\t85.7\t107.7##",
+      "length": 113
+    },
+    {
+      "text": "PROPosITIoN 3. Algorithm 5 can correctly computes the size of the maximum edge-based y-quasi-clique in finite steps.",
+      "tag": "@@10\t317.7\t561.3\t115.3\t137.7##",
+      "length": 116
+    },
+    {
+      "text": "PRooF. By Lemma 1, whenever the termination condition of the while-loop (Line 4) is satisfied, the returned value satisfies Si ≤ s*. By Lemma 2, as long as the termination condition is not met, the sequence {so, $1, ..*, Si} is strictly decreasing and remains an upper bound on s*. Further, the s value at each iteration satisfies Si ≥ s* until the termination condition is triggered. Thus, the only possibility at termination is that si = s* and the algorithm can beterminated in finite steps.口",
+      "tag": "@@10\t316.0\t560.3\t144.3\t231.0##",
+      "length": 495
+    },
+    {
+      "text": " Algorithm 6: UpperBound(G)",
+      "tag": "@@10\t55.0\t172.0\t217.0\t227.7##",
+      "length": 27
+    },
+    {
+      "text": "Output: An upper bound ub of s*1 ub ←(1 +√1+ 8m/y)/2; k ← get-k(ub);2 while true doub — ComputeUB(k);if get-k(ub) ≥ k then break;k←get-k(ub);5",
+      "tag": "@@10\t54.0\t218.7\t230.3\t298.7##",
+      "length": 142
+    },
+    {
+      "text": "A.2 Upper Bound and Correctness",
+      "tag": "@@10\t317.7\t494.7\t241.7\t253.3##",
+      "length": 31
+    },
+    {
+      "text": "Note that the proof in the previous subsection reveals that EQC-TD essentially iteratively computes tighter upper bounds. Thus, it is possible to compute an initial upper bound before starting the iteration. In this subsection, we introduce the algorithm for solving the upper bound in EQC-TD and provide a proof of its correctness.Upper Bound. An upper bound is commonly used in the liter-ature for MaxEQC [34, 42], which is used to estimate the size ofthe maximum y-EQC by solving m ≥ y · (), yielding ub ≤(1 + √1 + 8m/y)/2. However, this bound is often overly coarse. To obtain a tighter upper bound, we incorporate the coloring-basedupper bounding strategy from the kDC problem [8, 15] into an it-erative framework tailored for the y-EQC setting. Our method for computing upper bounds for MaxEQC is based on a key observation. In our top-down iterative framework (Algorithm 5), we maintain upper bounds for the optimal values k* = get-k(s*) and s* at each iteration. By consistently choosing k and s as upper bounds, each iteration produces progressively tighter upper bounds. Thus, if the k value in some iteration is an upper bound of k*, then the upper bound computed for the corresponding kDC problem is also an upper bound of s*. Based on this, we summarize our upper bound method UpperBound in Algorithm 6, where ComputeUB is an upper bound estimation procedure for kDC [8, 15]. Specifically, UpperBound firstinitializes a trivial ub as (1+ √1 + 8m/y) /2 and sets the correspond-ing value of k in Line 1. Then, UpperBound iteratively invokesComputeUB with different values of k (Lines 2-6 of Algorithm 6)until the condition get-k(ub) ≥ k is satisfied in Line 4. Finally, we return ub as the upper bound of s* in Line 6.",
+      "tag": "@@10\t315.0\t561.3\t255.7\t557.0##",
+      "length": 1729
+    },
+    {
+      "text": "6 return ub;",
+      "tag": "@@10\t55.0\t104.0\t304.3\t313.7##",
+      "length": 12
+    },
+    {
+      "text": "as so via UpperBound (described later). This upper bound is itera-tively refined within the while-loop (Lines 2-6). In each iteration,EQC-TD assumes the existence of a size-si-1 y-EQC and computesthe corresponding upper bound on the number of missing edges,denoted as ki = get-k(si-1). Using this value, EQC-TD invokes solve-defect to obtain the maximum size si of a kj-defective clique. We show that this procedure provides a tighter upper bound for the optimal solution s*. The algorithm terminates when the k-sequence converges, ie., when k; = get-k(si) in Line 4, and returns the corresponding size si as the final result in Line 5.Correctness. We next prove the correctness of our top-down it-erative framework EQC-TD for solving MaxEQC in Algorithm 5. We first establish two supporting lemmas.",
+      "tag": "@@10\t50.7\t296.7\t335.7\t479.3##",
+      "length": 799
+    },
+    {
+      "text": "LEMMA 1. Given a real number0 < y < 1, recallthat s* denotes the size of the maximum edge-based y-quasi-clique. If a value s satisfies the condition s = solve-defect(get-k(s)), then we have s ≤ s*.",
+      "tag": "@@10\t53.3\t296.0\t484.3\t517.3##",
+      "length": 197
+    },
+    {
+      "text": "PRooF. Let k = get-k(s) = [() ×(1 - y)]. Since we havesolve-defect(k) = s, there exists a subgraph g of G with |V(g)| =s that is a k-defective clique. Thus, we have |E(g)l ≥ () - k ≥()- ()(1 - y) = () y, which implies that g is an edge-based Y-quasi-clique of size s. By the definition of s* as the maximum sizeof any edge-based y-quasi-clique, we conclude that s ≤ s*.口",
+      "tag": "@@10\t52.3\t296.0\t521.3\t588.2##",
+      "length": 370
+    },
+    {
+      "text": "We first present the existing ComputeUB algorithm [8, 15] for computing an upper bound for kDC, which is used in our upper bound computation algorithm UpperBound (Algorithm 6). We then prove that in our UpperBound, the iterative procedure (Lines 2-5 of Algorithm 6) produces a strictly decreasing sequence of upper bounds, each of which remains a valid upper bound of the optimal value s*, i.e., the size of the maximum y-EQC. This result can also be used to demonstrates the correctness of our UpperBound.",
+      "tag": "@@10\t315.0\t559.7\t556.0\t643.3##",
+      "length": 506
+    },
+    {
+      "text": "LEMMA 2. Let s* be the optimal size. Let ub > s* be an upper bound before an iteration (i.e., an execution of the while-loop in Lines 2-6 of Algorithm 1), where ub may be the s value obtained in the last iteration. Define k = get-k(ub) and ub' as the s value after the iteration, ie., ub' = solve-defect(k). Then, we have s* ≤ ub' < ub. In other words, ub' is a strictly tighter upper bound on s*.",
+      "tag": "@@10\t52.3\t296.0\t594.7\t661.7##",
+      "length": 397
+    },
+    {
+      "text": "ComputeUB Algorithm. The key idea of ComputeUB is to apply a vertex coloring strategy that assigns different colors to adjacent vertices, partitioning the graph into independent sets (i.e., each color class consists non-adjacent vertices). ComputeUB focuses only onmissing edges within each color class. During the selection process,vertices are greedily added such that each new vertex introduces the",
+      "tag": "@@10\t316.0\t559.7\t644.3\t711.0##",
+      "length": 401
+    },
+    {
+      "text": "PROOF. Since get-k and solve-defect are non-decreasing, by Proposition 2, we know solve-defect(get-k(s*)) ≥ s*. Applyingthis to ub > s*, we obtain ub' = solve-defect(get-k(ub) ≥solve-defect(get-k(s*)) ≥ s* On the other hand, since ub > s*",
+      "tag": "@@10\t50.7\t296.0\t666.7\t711.0##",
+      "length": 238
+    },
+    {
+      "text": "final upper bound is a valid upper bound on s*, and that the al-gorithm terminates in finitely many steps. Initially, in Line 1 of Algorithm 6, the value of k is set by assuming that the optimal value is ub. Specifically, the algorithm computes the maximum number of missing edges allowed in a y-EQC of size ub, which serves as an upper bound on the number of missing edges in the corresponding maximum k*-defective clique,ie., k* = get-k(s*).",
+      "tag": "@@11\t316.0\t560.3\t345.0\t423.3##",
+      "length": 443
+    },
+    {
+      "text": "fewest missing edges among already selected vertices of the same color. This process continues until the total number of missing edges reaches or exceeds the threshold k. Since missing edges between different color classes are ignored, the number of selected vertices provides an upper bound on the size of the maximum k-defective clique. We remark that since the greedy selection is based on afixed coloring order rather than k, ComputeUB is monotonic in k:for k' > k, ComputeUB(k') ≥ ComputeUB(k).",
+      "tag": "@@11\t51.7\t296.0\t401.0\t488.3##",
+      "length": 499
+    },
+    {
+      "text": "Consider two consecutive iterations. Let ub1 denote the cur-rent upper bound of the optimal value s* at the beginning of an iteration, and let k1 be the corresponding upper bound on thenumber of missing edges, ie., k1 ≥ k*. Let k2 = get-k(ub1)be the maximum number of missing edges associated with a y-EQC of size ub1, and let ub2 = ComputeUB(k2) be the new up-per bound computed for the next iteration. In each subsequentiteration, the algorithm updates ub1 — ub2 and k1 ← k2. Ob-serve that the while loop proceeds only if k2 = get-k(ub1) < k1ensuring that the value of k strictly decreases with each itera-tion. Since the function ComputeUB is monotonic with respect to k, ub2 = ComputeUB(k2) ≤ ComputeUB(k1) = ub1, and thus, the sequence of upper bounds is non-increasing.",
+      "tag": "@@11\t315.3\t561.3\t421.7\t564.3##",
+      "length": 775
+    },
+    {
+      "text": "ComputeUB is shown in Algorithm 7. The graph is first greedily colored in Line 1. Then, vertices are selected greedily to minimizenew missing edges within each color class. To improve the efficiency,we use a batch-wise selection strategy: initially, up to I vertices per color class are selected, followed by at most one more vertex per class. Since the coloring order is fixed, I can be effciently found via binary search (Lines 2-6), after which any remaining selections are made iteratively (Lines 7-12). Note that as long as the coloringorder is fixed, the correctness is guaranteed. In our implementation,we use the reverse degeneracy ordering for coloring.Correctness. We first note that ComputeUB (Algorithm 7) is mono-tone, i.e., for any k1 ≥ k2, we have ComputeUB(k1) ≥ ComputeUB(k2). Based on this monotonicity, we present the following lemma",
+      "tag": "@@11\t51.7\t299.3\t489.3\t631.0##",
+      "length": 852
+    },
+    {
+      "text": "Moreover, ComputeUB returns a valid upper bound on the size ofthe maximum k-defective clique for the given k. By construction,k2 = get-k(ub1) ≥ get-k(s*) = k*,and thus ub2 = ComputeUB(k2) ≥ComputeUB(k*) = s* throughout the process. Since k is a non-negative integer that can only take finitely many values boundedbelow by k*, and since k strictly decreases in each iteration, the al-gorithm must terminate after finitely many steps. Upon termination,the final ub remains a valid upper bound on s*.",
+      "tag": "@@11\t314.3\t568.7\t564.3\t652.7##",
+      "length": 497
+    },
+    {
+      "text": "LEMMA 3. During the iterative process (Lines 2-5) of Algorithm 6,the computed upper bound ub forms a non-increasing sequence and eventually terminates at a value that is an upper bound ofs*, ie., the size of the maximum y-EQC.",
+      "tag": "@@11\t51.7\t297.7\t635.3\t681.3##",
+      "length": 226
+    },
+    {
+      "text": "B Score Functions in EQC-Heu (Algorithm 3)",
+      "tag": "@@11\t316.7\t538.0\t674.0\t685.7##",
+      "length": 42
+    },
+    {
+      "text": "PROoF. Algorithm 6 iteratively computes a sequence of upper bounds on optimal value s*. We prove that upon termination, the",
+      "tag": "@@11\t52.3\t295.3\t688.0\t711.0##",
+      "length": 123
+    },
+    {
+      "text": "For completeness, we present the auxiliary subroutines used in EQC-Heu (Algorithm 3 in Section 5). We note that our EQC-Heu uses",
+      "tag": "@@11\t316.7\t559.7\t689.0\t710.3##",
+      "length": 128
+    },
+    {
+      "text": "multiple values of s and that (2) each iteration yields a valid kDC solution which can be used to further strengthen the lower bound for MaxEQC. As shown in Algorithm 9, EQC-Pro is an improved iterative algorithm built on the bottom-up doubling frameworkEQC-BU(Algorithm 1) and the heuristic strategy EQC-Heu-Pro (Al-gorithm 4), and further incorporates two main techniques in the MemoizedSearch function: memoization and expansion. First, we initiate a global memoization table (memo, Line 1) to cache results from previous calls to solve-defect(k), thus avoiding redundantcomputations across iterations. Subsequently, in Lines 2-3, we com-pute an initial heuristic solution g using Degen-opt and refine it with EQC-Heu-Pro, which attempts to expand the solution. The size of the resulting solution is used to initialize the lower bound lb of the search space for the bottom-up iterative framework.",
+      "tag": "@@12\t315.0\t561.3\t205.3\t358.0##",
+      "length": 899
+    },
+    {
+      "text": "After initialization (Line 4), EQC-Pro performs the bottom-up doubling iterative search in Lines 5-19, utilizing MemoizedSearch(Lines 20-28) in each iteration. We reuse cached results of solve-defect(k)when available; otherwise, we invoke it and store the result in memo if its size is at least s. Moreover, MemoizedSearch further expands the corresponding solution using EQC-Heu-Pro, which may yield a larger feasible solution. Once the iterative search terminates, the size of the maximum y-EQC is returned in Line 19. The correctness of EQC-Pro directly follows from that of Algorithm 1.",
+      "tag": "@@12\t316.0\t586.3\t356.3\t457.0##",
+      "length": 590
+    },
+    {
+      "text": " Scalability TestD:",
+      "tag": "@@12\t333.3\t337.7\t467.3\t477.3##",
+      "length": 19
+    },
+    {
+      "text": "To evaluate scalability, we select the largest instance across thetwo collections and perform subgraph sampling by randomly se-lecting vertices with increasing probabilities and extracting theinduced subgraphs. The results are presented in Figure 5. As shown,QClique consistently fails to solve any instance within the time limit, regardless of the sampling ratio or the value of y, indicating its inability to handle large graphs. For FPCE, the runtime appears to grow nearly linearly with the number of vertices in the figuredue to the use of a logarithmic scale on the y-axis. In reality, this be-havior is consistent with its exponential time complexity of O*(2n),where n is the number of vertices in the sampled subgraph.",
+      "tag": "@@12\t315.3\t561.3\t481.7\t602.3##",
+      "length": 726
+    },
+    {
+      "text": "the score function from [13]. The auxiliary subroutines are summa-rized in Algorithm 8. The procedure AddBestVertex (Lines 1-6)selects from the candidate set C the vertex with the largest degree to-wards S, breaking ties by the score function, and then moves it into S with its score reset. Symmetrically, RemoveWorstVertex (Lines7-12) identifies the vertex in S with the smallest internal degree,again breaking ties by score, and moves it back to C with its score reset. Finally, UpdateScore (Lines 13-17) updates the scores of all vertices: vertices in S are adjusted according to their connections to C relative to Ag, while vertices in C are updated based on their degree towards S. Together, these subroutines support the main heuristic process by guiding vertex movements and maintaining score information during the iterations.",
+      "tag": "@@12\t51.7\t297.0\t509.7\t653.3##",
+      "length": 834
+    },
+    {
+      "text": "In contrast, the runtime of EQc-Pro initially increases morerapidly than that of FPCE as the graph size grows. This is because,for smaller subgraphs, the polynomial-time components, such as Degen-Opt and EQC-Heu-Pro, dominate the overall computational cost. However, as the graph size increases and the exponentialsearch component becomes dominant, the advantage of our im-proved exponential base O*(β2) becomes increasingly apparent. Consequently, for larger graphs, EQc-Pro grows more slowly and consistently outperforms FPCE across all scales.",
+      "tag": "@@12\t315.0\t560.3\t601.3\t700.3##",
+      "length": 546
+    },
+    {
+      "text": "C Omitted Details of EQC-Pro in Section 6",
+      "tag": "@@12\t51.7\t265.3\t662.3\t674.0##",
+      "length": 41
+    },
+    {
+      "text": "In this section, we present the omitted details of EQc-Pro men-tioned in Section 6. Based on two observations from Section 6,namely that (1) solutions from solve-defect(k) can be reused for",
+      "tag": "@@12\t52.3\t296.0\t677.3\t710.3##",
+      "length": 189
+    }
+  ],
+  "tables_info": [
+    {
+      "index": 0,
+      "type": "<class 'tuple'>",
+      "description": "表格对象"
+    },
+    {
+      "index": 1,
+      "type": "<class 'tuple'>",
+      "description": "表格对象"
+    },
+    {
+      "index": 2,
+      "type": "<class 'tuple'>",
+      "description": "表格对象"
+    },
+    {
+      "index": 3,
+      "type": "<class 'tuple'>",
+      "description": "表格对象"
+    },
+    {
+      "index": 4,
+      "type": "<class 'tuple'>",
+      "description": "表格对象"
+    }
+  ]
+}
