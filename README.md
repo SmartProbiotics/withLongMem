@@ -131,9 +131,10 @@ python main.py   # 自动写入 → 检索 → 寿命扣减 → 过期删除 全
 
 ---
 
-## 📄 许可证
-MIT · 随便用、随便改、随便商用，**记得自己保管好 API_KEY**。
+## 📜 许可证和致谢
+本项目基于 [InfiniFlow/deepdoc](https://github.com/InfiniFlow/deepdoc) 项目，
+遵循 Apache License 2.0 许可证。
 
----
+感谢 InfiniFlow 团队的开源贡献！
 
 > 如果对你有帮助，点个 ⭐ 让仓库活下去 ~
