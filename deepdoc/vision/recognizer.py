@@ -13,7 +13,8 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 #
-
+#
+"""通过Token数量来判断是长文本还是短文本，进而决定是否合并"""
 import logging
 import os
 import math

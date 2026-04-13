@@ -38,7 +38,7 @@ class MyMilvus:
             # 定义字段
             fields = [
                 FieldSchema(name="id", dtype=DataType.VARCHAR, is_primary=True, auto_id=True, max_length=64),
-                FieldSchema(name="text", dtype=DataType.VARCHAR, max_length=512),
+                FieldSchema(name="text", dtype=DataType.VARCHAR, max_length=2048),
                 FieldSchema(name="title", dtype=DataType.VARCHAR, max_length=512),
                 FieldSchema(name="source", dtype=DataType.VARCHAR, max_length=128),
                 FieldSchema(name="sparse_vector", dtype=DataType.SPARSE_FLOAT_VECTOR),
@@ -265,19 +265,20 @@ db=MyMilvus()
 
 #测试代码
 if __name__ == "__main__":
-    query="测试保存到a.txt"
+    query="abstract"
     block=MemoryBlock(text=query,metadata={"title":"查询","source":"用户输入"})
-    db.insert_block(block,collection_name=LONG_TERM_MEM)
-    results=db.hybrid_search(query,10,LONG_TERM_MEM,1.0,0.2)
-    blocks=db.result_to_blocks(results)
-    for block in blocks:
-        print(block.text)
-        print(block.metadata["title"])
-        print(block.metadata["source"])
-        print("============")
-    for i in range(9):
-        db.block_to_die(block,collection_name=LONG_TERM_MEM)
-    results=db.hybrid_search(query,10,LONG_TERM_MEM,1.0,0.2)
+    # db.insert_block(block,collection_name=LONG_TERM_MEM)
+    from deepdoc.pdf_parse import LOCAL_PDF_FILE
+    results=db.hybrid_search(query,10,LOCAL_PDF_FILE,1.0,0.2)
+    # blocks=db.result_to_blocks(results)
+    # for block in blocks:
+    #     print(block.text)
+    #     print(block.metadata["title"])
+    #     print(block.metadata["source"])
+    #     print("============")
+    # for i in range(9):
+    #     db.block_to_die(block,collection_name=LONG_TERM_MEM)
+    # results=db.hybrid_search(query,10,LONG_TERM_MEM,1.0,0.2)
     blocks=db.result_to_blocks(results)
     for block in blocks:
         print(block.text)

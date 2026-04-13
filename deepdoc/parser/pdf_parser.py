@@ -525,6 +525,7 @@ class RAGFlowPdfParser:
                     # 如果没有XGBoost模型，使用简单的启发式规则
                     if self.updown_cnt_mdl is None:
                         # 简单的连接规则：如果两个文本块在垂直方向上足够接近，就连接它们
+                        print("Warnning: 没有XGBoost模型，使用简单的启发式规则")
                         vertical_gap = abs(down["y0"] - up["y1"])
                         avg_height = (up.get("height", 20) + down.get("height", 20)) / 2
                         if vertical_gap > avg_height * 1.5:  # 垂直间距大于平均高度的1.5倍

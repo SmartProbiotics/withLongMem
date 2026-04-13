@@ -1,8 +1,10 @@
 {
+  "status": "success",
   "file_path": "/root/withLongMem/test/user_document/24S151167.pdf",
-  "process_time": 82.19186309957877,
-  "paragraphs": 271,
-  "tables": 13,
+  "output_file": "/root/withLongMem/test/result.json",
+  "process_time": 80.45400080829859,
+  "paragraphs": 176,
+  "tables": 14,
   "sections": [
     {
       "text": "Maximum Edge--Clique: Novel Iterative FrameworksbasedUasi",
@@ -550,74 +552,9 @@
       "length": 1437
     },
     {
-      "text": "S*",
-      "tag": "@@7\t283.7\t293.7\t513.0\t520.7##",
-      "length": 2
-    },
-    {
-      "text": "444",
-      "tag": "@@7\t282.0\t294.3\t520.7\t544.7##",
-      "length": 3
-    },
-    {
-      "text": "35",
-      "tag": "@@7\t282.7\t292.0\t543.0\t551.0##",
-      "length": 2
-    },
-    {
       "text": "Figures 3 and 4 illustrate the number of solved instances over time on the Facebook and Real-World collections, respectively, for",
       "tag": "@@7\t316.0\t559.7\t546.0\t567.7##",
       "length": 129
-    },
-    {
-      "text": "20",
-      "tag": "@@7\t283.7\t292.0\t549.3\t558.7##",
-      "length": 2
-    },
-    {
-      "text": "22",
-      "tag": "@@7\t283.7\t292.0\t557.7\t565.0##",
-      "length": 2
-    },
-    {
-      "text": "1.13",
-      "tag": "@@7\t141.0\t155.3\t563.0\t573.0##",
-      "length": 4
-    },
-    {
-      "text": "rt-retweet-",
-      "tag": "@@7\t57.3\t84.7\t565.0\t573.3##",
-      "length": 11
-    },
-    {
-      "text": "11.93",
-      "tag": "@@7\t218.7\t234.3\t565.0\t574.3##",
-      "length": 5
-    },
-    {
-      "text": "1.44",
-      "tag": "@@7\t113.0\t125.7\t566.0\t572.7##",
-      "length": 4
-    },
-    {
-      "text": "1.26",
-      "tag": "@@7\t166.3\t178.0\t566.0\t572.7##",
-      "length": 4
-    },
-    {
-      "text": "1.1M",
-      "tag": "@@7\t246.0\t258.7\t566.0\t572.7##",
-      "length": 4
-    },
-    {
-      "text": "4.5M",
-      "tag": "@@7\t266.0\t278.7\t566.0\t572.7##",
-      "length": 4
-    },
-    {
-      "text": "16",
-      "tag": "@@7\t284.3\t292.7\t566.0\t574.3##",
-      "length": 2
     },
     {
       "text": "Y  {0.92, 0.94, 0.96, 0.98}. As shown, both baseline methods con-",
@@ -625,104 +562,9 @@
       "length": 65
     },
     {
-      "text": "inf-roadNet-PA",
-      "tag": "@@7\t57.3\t99.0\t571.7\t580.7##",
-      "length": 14
-    },
-    {
-      "text": "0.31",
-      "tag": "@@7\t112.3\t128.0\t571.7\t580.7##",
-      "length": 4
-    },
-    {
-      "text": "0.39",
-      "tag": "@@7\t165.3\t179.7\t571.7\t580.7##",
-      "length": 4
-    },
-    {
-      "text": "1.37",
-      "tag": "@@7\t218.7\t232.7\t571.7\t580.7##",
-      "length": 4
-    },
-    {
-      "text": "0.46",
-      "tag": "@@7\t141.3\t153.7\t572.7\t580.7##",
-      "length": 4
-    },
-    {
-      "text": "1M",
-      "tag": "@@7\t247.0\t257.7\t572.7\t580.0##",
-      "length": 2
-    },
-    {
-      "text": "3M",
-      "tag": "@@7\t266.0\t277.0\t572.7\t580.0##",
-      "length": 2
-    },
-    {
-      "text": "909K",
-      "tag": "@@7\t245.3\t259.3\t579.0\t588.3##",
-      "length": 4
-    },
-    {
       "text": " sistently exhibit poor performance on these datasets regardless of",
       "tag": "@@7\t316.0\t561.3\t579.0\t590.0##",
       "length": 67
-    },
-    {
-      "text": "sc-ldoor",
-      "tag": "@@7\t57.3\t81.3\t580.0\t588.3##",
-      "length": 8
-    },
-    {
-      "text": "211.23",
-      "tag": "@@7\t112.3\t133.0\t580.0\t589.0##",
-      "length": 6
-    },
-    {
-      "text": "212.22",
-      "tag": "@@7\t165.3\t183.7\t580.0\t589.0##",
-      "length": 6
-    },
-    {
-      "text": "22",
-      "tag": "@@7\t284.3\t292.0\t580.0\t588.3##",
-      "length": 2
-    },
-    {
-      "text": "41M",
-      "tag": "@@7\t266.0\t277.7\t580.7\t587.3##",
-      "length": 3
-    },
-    {
-      "text": "soc-delicious",
-      "tag": "@@7\t58.3\t90.7\t586.7\t595.7##",
-      "length": 13
-    },
-    {
-      "text": "0.67",
-      "tag": "@@7\t112.3\t127.3\t586.7\t595.7##",
-      "length": 4
-    },
-    {
-      "text": "2.7M",
-      "tag": "@@7\t264.3\t278.7\t586.7\t595.7##",
-      "length": 4
-    },
-    {
-      "text": "4.64",
-      "tag": "@@7\t166.3\t178.7\t588.3\t594.7##",
-      "length": 4
-    },
-    {
-      "text": "536K",
-      "tag": "@@7\t245.3\t258.7\t588.3\t594.7##",
-      "length": 4
-    },
-    {
-      "text": "30",
-      "tag": "@@7\t281.0\t289.7\t590.0\t597.3##",
-      "length": 2
     },
     {
       "text": "the value of y. On the Facebook collection, when y = 0.98, EQc-Pro",
@@ -730,114 +572,9 @@
       "length": 66
     },
     {
-      "text": "4.31",
-      "tag": "@@7\t112.3\t127.3\t594.7\t604.0##",
-      "length": 4
-    },
-    {
-      "text": "495K",
-      "tag": "@@7\t244.3\t259.3\t594.7\t604.0##",
-      "length": 4
-    },
-    {
-      "text": " soc-youtube",
-      "tag": "@@7\t56.3\t90.3\t595.7\t605.7##",
-      "length": 12
-    },
-    {
-      "text": "12.79",
-      "tag": "@@7\t167.0\t180.3\t595.7\t602.3##",
-      "length": 5
-    },
-    {
-      "text": "3M",
-      "tag": "@@7\t266.0\t277.0\t595.7\t602.3##",
-      "length": 2
-    },
-    {
-      "text": "22",
-      "tag": "@@7\t283.7\t292.0\t595.7\t603.0##",
-      "length": 2
-    },
-    {
       "text": "successfully solves all 114 instances, whereas the best of the two",
       "tag": "@@7\t316.7\t559.7\t600.7\t612.0##",
       "length": 66
-    },
-    {
-      "text": "101.92",
-      "tag": "@@7\t165.3\t183.7\t601.3\t610.3##",
-      "length": 6
-    },
-    {
-      "text": "404K",
-      "tag": "@@7\t245.3\t259.3\t601.3\t610.3##",
-      "length": 4
-    },
-    {
-      "text": "18M",
-      "tag": "@@7\t265.3\t277.7\t601.3\t611.3##",
-      "length": 3
-    },
-    {
-      "text": "101.36",
-      "tag": "@@7\t112.3\t133.0\t602.3\t611.3##",
-      "length": 6
-    },
-    {
-      "text": "22",
-      "tag": "@@7\t283.7\t292.0\t602.3\t610.3##",
-      "length": 2
-    },
-    {
-      "text": "sc-msdoor",
-      "tag": "@@7\t57.3\t86.3\t603.0\t611.3##",
-      "length": 9
-    },
-    {
-      "text": "5.28",
-      "tag": "@@7\t218.0\t233.0\t606.7\t616.7##",
-      "length": 4
-    },
-    {
-      "text": "1.4M",
-      "tag": "@@7\t265.3\t279.3\t609.0\t618.0##",
-      "length": 4
-    },
-    {
-      "text": "soc-twitter-follows",
-      "tag": "@@7\t58.3\t105.7\t609.7\t618.0##",
-      "length": 19
-    },
-    {
-      "text": "0.24",
-      "tag": "@@7\t112.3\t126.3\t609.7\t618.7##",
-      "length": 4
-    },
-    {
-      "text": "0.16",
-      "tag": "@@7\t140.7\t154.7\t609.7\t618.7##",
-      "length": 4
-    },
-    {
-      "text": "0.25",
-      "tag": "@@7\t164.7\t178.7\t609.7\t626.3##",
-      "length": 4
-    },
-    {
-      "text": "404K",
-      "tag": "@@7\t245.3\t259.3\t609.7\t618.7##",
-      "length": 4
-    },
-    {
-      "text": "7",
-      "tag": "@@7\t286.3\t292.3\t610.0\t615.7##",
-      "length": 1
-    },
-    {
-      "text": "3335.43",
-      "tag": "@@7\t191.3\t212.0\t610.3\t618.0##",
-      "length": 7
     },
     {
       "text": "baselines solves only 9. Moreover, across all tested values of y.",
@@ -845,109 +582,9 @@
       "length": 65
     },
     {
-      "text": "332K",
-      "tag": "@@7\t245.3\t259.3\t616.3\t625.3##",
-      "length": 4
-    },
-    {
-      "text": "ca-MathSciNet",
-      "tag": "@@7\t57.3\t96.3\t617.0\t625.3##",
-      "length": 13
-    },
-    {
-      "text": ".6M",
-      "tag": "@@7\t267.0\t279.3\t617.0\t625.3##",
-      "length": 3
-    },
-    {
-      "text": "25",
-      "tag": "@@7\t283.7\t292.0\t617.0\t624.7##",
-      "length": 2
-    },
-    {
-      "text": "0.18",
-      "tag": "@@7\t111.0\t125.3\t617.3\t627.7##",
-      "length": 4
-    },
-    {
-      "text": "158.14",
-      "tag": "@@7\t220.3\t236.0\t618.0\t624.7##",
-      "length": 6
-    },
-    {
       "text": "EQC-Pro solves more instances within 30 seconds than either base-",
       "tag": "@@7\t316.7\t561.3\t623.0\t633.7##",
       "length": 65
-    },
-    {
-      "text": "55.5",
-      "tag": "@@7\t113.0\t127.3\t624.7\t633.7##",
-      "length": 4
-    },
-    {
-      "text": "100.45",
-      "tag": "@@7\t165.3\t183.0\t624.7\t633.7##",
-      "length": 6
-    },
-    {
-      "text": "217K",
-      "tag": "@@7\t244.3\t258.7\t624.7\t633.7##",
-      "length": 4
-    },
-    {
-      "text": "11M",
-      "tag": "@@7\t265.3\t279.3\t624.7\t633.7##",
-      "length": 3
-    },
-    {
-      "text": "sc-pwtk",
-      "tag": "@@7\t57.3\t80.7\t625.3\t634.3##",
-      "length": 7
-    },
-    {
-      "text": "26",
-      "tag": "@@7\t284.3\t292.0\t625.3\t633.7##",
-      "length": 2
-    },
-    {
-      "text": "59M",
-      "tag": "@@7\t245.3\t258.7\t631.0\t641.0##",
-      "length": 3
-    },
-    {
-      "text": "185M",
-      "tag": "@@7\t264.3\t280.3\t631.0\t641.0##",
-      "length": 4
-    },
-    {
-      "text": "22.82",
-      "tag": "@@7\t112.3\t129.7\t632.0\t641.0##",
-      "length": 5
-    },
-    {
-      "text": "23.38",
-      "tag": "@@7\t140.7\t156.3\t632.0\t641.0##",
-      "length": 5
-    },
-    {
-      "text": "28.99",
-      "tag": "@@7\t164.7\t182.0\t632.0\t642.0##",
-      "length": 5
-    },
-    {
-      "text": "1902.99",
-      "tag": "@@7\t218.7\t239.3\t632.0\t641.0##",
-      "length": 7
-    },
-    {
-      "text": "socfb-konect",
-      "tag": "@@7\t57.3\t91.3\t632.7\t642.0##",
-      "length": 12
-    },
-    {
-      "text": "7",
-      "tag": "@@7\t283.0\t289.7\t633.0\t640.3##",
-      "length": 1
     },
     {
       "text": "line does within 3 hours. For example, at y = 0.96, EQC-Pro solves",
@@ -955,129 +592,14 @@
       "length": 66
     },
     {
-      "text": "184M",
-      "tag": "@@7\t264.7\t280.7\t637.3\t647.3##",
-      "length": 4
-    },
-    {
-      "text": "socfb-uci-uni",
-      "tag": "@@7\t57.3\t92.3\t639.3\t648.3##",
-      "length": 13
-    },
-    {
-      "text": "28.15",
-      "tag": "@@7\t112.3\t129.7\t639.3\t648.3##",
-      "length": 5
-    },
-    {
-      "text": "29.59",
-      "tag": "@@7\t140.7\t156.3\t639.3\t648.3##",
-      "length": 5
-    },
-    {
-      "text": "33.39",
-      "tag": "@@7\t164.7\t181.3\t639.3\t648.3##",
-      "length": 5
-    },
-    {
-      "text": "7",
-      "tag": "@@7\t284.3\t292.0\t640.3\t647.7##",
-      "length": 1
-    },
-    {
-      "text": "58M",
-      "tag": "@@7\t243.7\t256.3\t640.7\t650.0##",
-      "length": 3
-    },
-    {
       "text": "30 instances in only 30 seconds, compared to only 3 and 7 solved by",
       "tag": "@@7\t316.7\t559.7\t645.0\t656.7##",
       "length": 67
     },
     {
-      "text": "socfb-A-anon",
-      "tag": "@@7\t58.3\t92.3\t647.7\t656.7##",
-      "length": 12
-    },
-    {
-      "text": "6857.26",
-      "tag": "@@7\t112.3\t134.7\t647.7\t656.7##",
-      "length": 7
-    },
-    {
-      "text": "3M",
-      "tag": "@@7\t247.0\t257.0\t648.3\t656.0##",
-      "length": 2
-    },
-    {
-      "text": "47M",
-      "tag": "@@7\t266.0\t278.7\t648.3\t656.7##",
-      "length": 3
-    },
-    {
-      "text": "37",
-      "tag": "@@7\t283.7\t292.0\t648.3\t655.0##",
-      "length": 2
-    },
-    {
-      "text": "socfb-B-anon",
-      "tag": "@@7\t56.0\t95.0\t651.7\t663.0##",
-      "length": 12
-    },
-    {
-      "text": "1952.97",
-      "tag": "@@7\t113.0\t135.7\t654.3\t663.3##",
-      "length": 7
-    },
-    {
-      "text": "41M",
-      "tag": "@@7\t265.3\t279.3\t654.3\t663.3##",
-      "length": 3
-    },
-    {
-      "text": "2.9M",
-      "tag": "@@7\t246.0\t258.7\t655.0\t663.3##",
-      "length": 4
-    },
-    {
-      "text": "35",
-      "tag": "@@7\t282.7\t292.0\t655.0\t662.3##",
-      "length": 2
-    },
-    {
       "text": "QClique and FPCE, respectively, even with a 3-hour limit. On the",
       "tag": "@@7\t316.7\t559.7\t656.0\t667.3##",
       "length": 64
-    },
-    {
-      "text": "41",
-      "tag": "@@7\t281.3\t295.7\t660.0\t670.0##",
-      "length": 2
-    },
-    {
-      "text": "socfb-Maine59",
-      "tag": "@@7\t54.7\t96.0\t661.7\t673.3##",
-      "length": 13
-    },
-    {
-      "text": "2421.99",
-      "tag": "@@7\t113.0\t136.3\t661.7\t672.3##",
-      "length": 7
-    },
-    {
-      "text": "3247.84",
-      "tag": "@@7\t165.3\t187.0\t661.7\t671.7##",
-      "length": 7
-    },
-    {
-      "text": "486K",
-      "tag": "@@7\t264.3\t279.3\t661.7\t671.7##",
-      "length": 4
-    },
-    {
-      "text": "K",
-      "tag": "@@7\t245.3\t257.0\t663.3\t670.0##",
-      "length": 1
     },
     {
       "text": "Real-World collection, EQC-Pro also consistently outperforms thetwo baselines under all tested values of y. Specifically, at y = 0.94,EQC-Pro solves 77 instances within only 30 seconds, while the best baseline solves only 68 instances even with a 3-hour limit.",
@@ -1358,6 +880,11 @@
       "text": "In this section, we present the omitted details of EQc-Pro men-tioned in Section 6. Based on two observations from Section 6,namely that (1) solutions from solve-defect(k) can be reused for",
       "tag": "@@12\t52.3\t296.0\t677.3\t710.3##",
       "length": 189
+    },
+    {
+      "text": "20 22 1.13 rt-retweet- 11.93 1.44 1.26 1.1M 4.5M 16 inf-roadNet-PA 0.31 0.39 1.37 0.46 1M 3M 909K sc-ldoor 211.23 212.22 22 41M soc-delicious 0.67 2.7M 4.64 536K 30 4.31 495K  soc-youtube 12.79 3M 22 101.92 404K 18M 101.36 22 sc-msdoor 5.28 1.4M soc-twitter-follows 0.24 0.16 0.25 404K 7 3335.43 332K ca-MathSciNet .6M 25 0.18 158.14 55.5 100.45 217K 11M sc-pwtk 26 59M 185M 22.82 23.38 28.99 1902.99 socfb-konect 7 184M socfb-uci-uni 28.15 29.59 33.39 7 58M socfb-A-anon 6857.26 3M 47M 37 socfb-B-anon 1952.97 41M 2.9M 35 41 socfb-Maine59 2421.99 3247.84 486K K S* 444 35",
+      "tag": "@@7\t54.7\t295.7\t513.0\t673.3##",
+      "length": 572
     }
   ],
   "tables_info": [
@@ -1385,6 +912,32 @@
       "index": 4,
       "type": "<class 'tuple'>",
       "description": "表格对象"
+    },
+    {
+      "index": 5,
+      "type": "<class 'tuple'>",
+      "description": "表格对象"
+    },
+    {
+      "index": 6,
+      "type": "<class 'tuple'>",
+      "description": "表格对象"
+    },
+    {
+      "index": 7,
+      "type": "<class 'tuple'>",
+      "description": "表格对象"
+    },
+    {
+      "index": 8,
+      "type": "<class 'tuple'>",
+      "description": "表格对象"
+    },
+    {
+      "index": 9,
+      "type": "<class 'tuple'>",
+      "description": "表格对象"
     }
-  ]
+  ],
+  "language": "english"
 }
